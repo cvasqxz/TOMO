@@ -1,0 +1,16 @@
+/* ===== TABLES ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  background-color: transparent !important;
+}
+
+tr, td, th {
+  background-color: transparent !important;
+  border-bottom: 1px solid var(--pico-table-border-color);
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--pico-table-row-stripped-background-color) !important;
+}

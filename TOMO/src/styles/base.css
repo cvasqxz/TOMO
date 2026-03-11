@@ -1,0 +1,44 @@
+/* ===== RESET & LAYOUT BASE ===== */
+html, body {
+  margin: 0;
+  padding: 0;
+  transition: var(--transition);
+}
+
+/* Dark Theme (Default/Dracula) */
+html, body, [data-theme="dark"] body {
+  background-color: var(--dracula-bg) !important;
+  color: var(--dracula-fg) !important;
+}
+
+/* Light Theme (Alucard) */
+[data-theme="light"] body,
+body:not([data-theme="dark"]),
+html[data-theme="light"] {
+  background-color: var(--alucard-bg) !important;
+  color: var(--alucard-fg) !important;
+}
+
+body {
+  padding: 2rem 0;
+}
+
+.container {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid transparent;
+}
+
+article#content-area {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+}

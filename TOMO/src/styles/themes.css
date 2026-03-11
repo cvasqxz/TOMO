@@ -1,0 +1,165 @@
+/* ===== LIGHT THEME (ALUCARD) ===== */
+body:not([data-theme="dark"]) {
+  background-color: var(--alucard-bg) !important;
+  color: var(--alucard-fg) !important;
+  --pico-table-border-color: #d9cfc5;
+  --pico-table-row-stripped-background-color: #f5f3f0;
+}
+
+body:not([data-theme="dark"]) header {
+  border-color: var(--alucard-purple);
+}
+
+body:not([data-theme="dark"]) #open-file,
+body:not([data-theme="dark"]) #theme-toggle {
+  filter: brightness(1.1) saturate(1.15);
+}
+
+body:not([data-theme="dark"]) th {
+  color: var(--alucard-red) !important;
+  border-bottom: 2px solid var(--alucard-red);
+}
+
+body:not([data-theme="dark"]) pre {
+  background: #f5ede1 !important;
+  border: 1px solid #d9cfc5;
+}
+
+body:not([data-theme="dark"]) pre code.hljs {
+  color: var(--alucard-fg) !important;
+}
+
+body:not([data-theme="dark"]) code:not(.hljs) {
+  background: #e8ddd0;
+  color: var(--alucard-red);
+}
+
+/* Alucard Code Syntax (Light adaptation of Dracula logic) */
+body:not([data-theme="dark"]) .hljs-keyword,
+body:not([data-theme="dark"]) .hljs-selector-tag,
+body:not([data-theme="dark"]) .hljs-literal,
+body:not([data-theme="dark"]) .hljs-section,
+body:not([data-theme="dark"]) .hljs-link {
+  color: var(--alucard-pink) !important;
+}
+
+body:not([data-theme="dark"]) .hljs-function,
+body:not([data-theme="dark"]) .hljs-title,
+body:not([data-theme="dark"]) .hljs-name,
+body:not([data-theme="dark"]) .hljs-selector-id,
+body:not([data-theme="dark"]) .hljs-selector-class {
+  color: var(--alucard-green) !important;
+}
+
+body:not([data-theme="dark"]) .hljs-number,
+body:not([data-theme="dark"]) .hljs-meta,
+body:not([data-theme="dark"]) .hljs-built_in,
+body:not([data-theme="dark"]) .hljs-builtin-name,
+body:not([data-theme="dark"]) .hljs-attr,
+body:not([data-theme="dark"]) .hljs-attribute,
+body:not([data-theme="dark"]) .hljs-variable,
+body:not([data-theme="dark"]) .hljs-subst {
+  color: var(--alucard-cyan) !important;
+}
+
+body:not([data-theme="dark"]) .hljs-string,
+body:not([data-theme="dark"]) .hljs-type,
+body:not([data-theme="dark"]) .hljs-params,
+body:not([data-theme="dark"]) .hljs-bullet,
+body:not([data-theme="dark"]) .hljs-addition {
+  color: var(--alucard-yellow) !important;
+}
+
+body:not([data-theme="dark"]) .hljs-comment,
+body:not([data-theme="dark"]) .hljs-quote,
+body:not([data-theme="dark"]) .hljs-deletion {
+  color: var(--alucard-comment) !important;
+}
+
+body:not([data-theme="dark"]) .hljs-keyword,
+body:not([data-theme="dark"]) .hljs-selector-tag {
+  font-weight: bold;
+}
+
+/* ===== DARK THEME (DRACULA OFFICIAL) ===== */
+[data-theme="dark"] body {
+  background-color: var(--dracula-bg) !important;
+  color: var(--dracula-fg) !important;
+  --pico-table-border-color: var(--dracula-selection);
+  --pico-table-row-stripped-background-color: var(--dracula-selection);
+}
+
+[data-theme="dark"] header {
+  border-color: var(--dracula-purple);
+}
+
+[data-theme="dark"] #open-file,
+[data-theme="dark"] #theme-toggle {
+  filter: invert(0.9) hue-rotate(20deg);
+}
+
+[data-theme="dark"] th {
+  color: var(--dracula-cyan) !important;
+  border-bottom: 2px solid var(--dracula-purple);
+}
+
+[data-theme="dark"] pre {
+  background: #1e1f2b !important;
+  border: 1px solid var(--dracula-comment);
+}
+
+[data-theme="dark"] pre code.hljs {
+  color: var(--dracula-fg) !important;
+}
+
+[data-theme="dark"] code:not(.hljs) {
+  background: #44475a;
+  color: var(--dracula-pink);
+}
+
+/* Official Dracula Highlight.js Mapping */
+[data-theme="dark"] .hljs-keyword,
+[data-theme="dark"] .hljs-selector-tag,
+[data-theme="dark"] .hljs-literal,
+[data-theme="dark"] .hljs-section,
+[data-theme="dark"] .hljs-link {
+  color: var(--dracula-pink) !important;
+}
+
+[data-theme="dark"] .hljs-function,
+[data-theme="dark"] .hljs-title,
+[data-theme="dark"] .hljs-name,
+[data-theme="dark"] .hljs-selector-id,
+[data-theme="dark"] .hljs-selector-class {
+  color: var(--dracula-green) !important;
+}
+
+[data-theme="dark"] .hljs-number,
+[data-theme="dark"] .hljs-meta,
+[data-theme="dark"] .hljs-built_in,
+[data-theme="dark"] .hljs-builtin-name,
+[data-theme="dark"] .hljs-attr,
+[data-theme="dark"] .hljs-attribute,
+[data-theme="dark"] .hljs-variable,
+[data-theme="dark"] .hljs-subst {
+  color: var(--dracula-cyan) !important;
+}
+
+[data-theme="dark"] .hljs-string,
+[data-theme="dark"] .hljs-type,
+[data-theme="dark"] .hljs-params,
+[data-theme="dark"] .hljs-bullet,
+[data-theme="dark"] .hljs-addition {
+  color: var(--dracula-yellow) !important;
+}
+
+[data-theme="dark"] .hljs-comment,
+[data-theme="dark"] .hljs-quote,
+[data-theme="dark"] .hljs-deletion {
+  color: var(--dracula-comment) !important;
+}
+
+[data-theme="dark"] .hljs-keyword,
+[data-theme="dark"] .hljs-selector-tag {
+  font-weight: bold;
+}

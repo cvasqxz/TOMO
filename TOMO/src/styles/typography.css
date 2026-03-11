@@ -1,0 +1,11 @@
+/* ===== TYPOGRAPHY ===== */
+body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, textarea {
+  font-family: var(--font-base) !important;
+  letter-spacing: 0.5px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: inherit !important;
+  font-weight: 700;
+  margin-top: 1.5rem;
+}

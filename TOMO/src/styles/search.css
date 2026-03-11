@@ -1,0 +1,109 @@
+/* ===== SEARCH BAR ===== */
+#search-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+#search-container.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.search-bar-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--dracula-bg) !important;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  border: 2px solid var(--dracula-purple);
+  min-width: 420px;
+}
+
+body:not([data-theme="dark"]) .search-bar-content {
+  background: var(--alucard-bg) !important;
+  border-color: var(--alucard-purple);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+#search-input {
+  margin-bottom: 0;
+  flex: 1;
+  height: 38px;
+  font-size: 0.9rem;
+  border: 1px solid var(--pico-border-color);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: inherit !important;
+}
+
+body:not([data-theme="dark"]) #search-input {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border-color: #d9cfc5;
+}
+
+.search-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+#search-count {
+  font-size: 0.85rem;
+  min-width: 60px;
+  text-align: center;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  color: var(--dracula-purple);
+}
+
+body:not([data-theme="dark"]) #search-count {
+  color: var(--alucard-purple);
+}
+
+.search-controls button {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+  border-radius: 8px;
+}
+
+/* Search Highlight - ORANGE */
+mark {
+  background: var(--dracula-orange) !important;
+  color: #000 !important;
+  border-radius: 2px;
+  padding: 0 2px;
+  transition: background-color 0.2s ease;
+}
+
+mark.current {
+  background: var(--dracula-yellow) !important;
+  color: #000 !important;
+  box-shadow: 0 0 0 2px var(--dracula-yellow);
+  z-index: 1;
+}
+
+body:not([data-theme="dark"]) mark {
+  background: var(--alucard-orange) !important;
+  color: #fff !important;
+}
+
+body:not([data-theme="dark"]) mark.current {
+  background: #f1c40f !important; /* Yellow for Alucard */
+  color: #000 !important;
+  box-shadow: 0 0 0 2px #f1c40f;
+}

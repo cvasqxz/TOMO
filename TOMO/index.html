@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TOMO - Markdown Reader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&family=Kode+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 2rem;">
+        <hgroup>
+          <h1># TOMO</h1>
+          <p>Markdown Viewer</p>
+        </hgroup>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+          <img src="src/assets/open_file.svg" width="42" height="42" id="open-file" style="cursor: pointer;"/>
+          <img src="src/assets/theme_toggle.svg" width="42" height="42" id="theme-toggle" style="cursor: pointer;"/>
+        </div>
+      </div>
+    </header>
+
+    <article id="content-area">
+      <p><em>Select a Markdown file or drag it here to read it.</em></p>
+    </article>
+
+    <div id="search-container" class="search-bar-hidden">
+      <div class="search-bar-content">
+        <input type="text" id="search-input" placeholder="Search in document..." aria-label="Search">
+        <div class="search-controls">
+          <span id="search-count">0/0</span>
+          <button id="search-prev" class="outline">↑</button>
+          <button id="search-next" class="outline">↓</button>
+          <button id="search-close" class="outline">✕</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Vite will process this file and resolve all dependencies -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

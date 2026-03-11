@@ -1,0 +1,64 @@
+/* ===== TOAST NOTIFICATIONS ===== */
+.toast {
+  position: fixed;
+  bottom: -100px;
+  right: 20px;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 9999;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #000; /* Default text color for bright backgrounds */
+}
+
+.toast.show {
+  bottom: 20px;
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: normal;
+}
+
+/* Success - Green */
+.toast-success {
+  background: var(--dracula-green) !important;
+}
+body:not([data-theme="dark"]) .toast-success {
+  background: var(--alucard-green) !important;
+  color: #fff !important;
+}
+
+/* Error - Red */
+.toast-error {
+  background: var(--dracula-red) !important;
+  color: #fff !important;
+}
+body:not([data-theme="dark"]) .toast-error {
+  background: var(--alucard-red) !important;
+  color: #fff !important;
+}
+
+/* Warning - Orange */
+.toast-warning {
+  background: var(--dracula-orange) !important;
+}
+body:not([data-theme="dark"]) .toast-warning {
+  background: var(--alucard-orange) !important;
+  color: #fff !important;
+}
+
+/* Info - Cyan */
+.toast-info {
+  background: var(--dracula-cyan) !important;
+}
+body:not([data-theme="dark"]) .toast-info {
+  background: var(--alucard-cyan) !important;
+  color: #fff !important;
+}
