@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TOMO - Design 14: Gradient</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&family=Kode+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Questrial', sans-serif;
+      background: linear-gradient(135deg, #282a36 0%, #44475a 50%, #282a36 100%);
+      color: #f8f8f2;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    body::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(189,147,249,0.1) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+    }
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .container {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 600px;
+    }
+    h1 {
+      font-size: 5rem;
+      font-family: 'Kode Mono', monospace;
+      background: linear-gradient(135deg, #bd93f9, #ff79c6, #50fa7b, #8be9fd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+      background-size: 200% 200%;
+      animation: gradient 5s ease infinite;
+    }
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .subtitle {
+      font-size: 1rem;
+      color: #6272a4;
+      margin-bottom: 3rem;
+      letter-spacing: 0.3em;
+    }
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    button {
+      background: rgba(68, 71, 90, 0.5);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(189, 147, 249, 0.3);
+      color: #f8f8f2;
+      padding: 1rem 2rem;
+      font-family: 'Questrial', sans-serif;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 50px;
+      transition: all 0.3s;
+    }
+    button:hover {
+      background: rgba(189, 147, 249, 0.3);
+      border-color: #bd93f9;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(189, 147, 249, 0.3);
+    }
+    .hint {
+      margin-top: 3rem;
+      color: #6272a4;
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>TOMO</h1>
+    <div class="subtitle">MARKDOWN READER</div>
+    <div class="buttons">
+      <button id="open-file">📄 Open File</button>
+      <button id="theme-toggle">☾ Theme</button>
+    </div>
+    <div class="hint">
+      Drop your markdown file anywhere
+    </div>
+  </div>
+</body>
+</html>

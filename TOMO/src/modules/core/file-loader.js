@@ -28,7 +28,7 @@ export async function loadMarkdown(path, markdownParser) {
     try {
       markdownText = await readTextFile(path);
     } catch (err) {
-      showToast(`Could not read file: ${err.message}`, 'error');
+      showToast(`Could not read file: ${err.message || err}`, 'error');
       console.error("File read error:", err);
       return;
     }

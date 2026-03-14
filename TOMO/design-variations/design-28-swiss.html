@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TOMO - Design 28: Swiss Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&family=Kode+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Questrial', sans-serif;
+      background: #fffbeb;
+      color: #1f1f1f;
+      min-height: 100vh;
+      padding: 3rem;
+    }
+    .grid-swiss {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(8, 80px);
+      gap: 1px;
+      background: #1f1f1f;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .cell {
+      background: #fffbeb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-cell {
+      grid-column: 1 / 7;
+      grid-row: 1 / 5;
+      background: #1f1f1f;
+      color: #fffbeb;
+      font-size: 4rem;
+      font-family: 'Kode Mono', monospace;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .logo-text {
+      font-size: 1rem;
+      letter-spacing: 0.5em;
+    }
+    .red-cell {
+      background: #cb3a2a;
+      grid-column: 7 / 13;
+      grid-row: 1 / 3;
+    }
+    .info-cell {
+      grid-column: 7 / 13;
+      grid-row: 3 / 5;
+      padding: 2rem;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      text-align: left;
+    }
+    .action-cell {
+      grid-column: 1 / 7;
+      grid-row: 5 / 7;
+      background: #fffbeb;
+      cursor: pointer;
+      transition: all 0.3s;
+      border: 2px solid transparent;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    .action-cell:hover {
+      background: #1f1f1f;
+      color: #fffbeb;
+    }
+    .action-cell-2 {
+      grid-column: 7 / 13;
+      grid-row: 5 / 7;
+      background: #fffbeb;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    .action-cell-2:hover {
+      background: #cb3a2a;
+      color: #fffbeb;
+    }
+    .feature-cell {
+      grid-column: 1 / 13;
+      grid-row: 7 / 9;
+      padding: 2rem;
+      justify-content: space-between;
+    }
+    .feature-item {
+      text-align: center;
+    }
+    .feature-number {
+      font-size: 2rem;
+      font-family: 'Kode Mono', monospace;
+      color: #cb3a2a;
+    }
+    .info-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 0.5rem;
+      color: #6c664b;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-swiss">
+    <div class="cell logo-cell">
+      <div>TOMO</div>
+      <div class="logo-text">MARKDOWN</div>
+    </div>
+
+    <div class="cell red-cell"></div>
+
+    <div class="cell info-cell">
+      <div class="info-title">Application</div>
+      <p style="line-height: 1.6;">
+        A minimal, functional markdown reader built with precision and Swiss design principles.
+      </p>
+    </div>
+
+    <div class="cell action-cell" id="open-file">
+      OPEN FILE
+    </div>
+
+    <div class="cell action-cell-2" id="theme-toggle">
+      TOGGLE THEME
+    </div>
+
+    <div class="cell feature-cell">
+      <div class="feature-item">
+        <div class="feature-number">01</div>
+        <div>Minimal</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-number">02</div>
+        <div>Fast</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-number">03</div>
+        <div>Clean</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-number">04</div>
+        <div>Precise</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

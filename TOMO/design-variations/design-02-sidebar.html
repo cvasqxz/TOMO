@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TOMO - Design 02: Sidebar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&family=Kode+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Questrial', sans-serif;
+      background: #fffbeb;
+      color: #1f1f1f;
+      display: flex;
+      min-height: 100vh;
+    }
+    .sidebar {
+      width: 280px;
+      background: #644ac9;
+      color: #fffbeb;
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-family: 'Kode Mono', monospace;
+      color: #fffbeb;
+    }
+    .subtitle {
+      font-size: 0.875rem;
+      opacity: 0.8;
+      margin-top: -1.5rem;
+    }
+    button {
+      background: transparent;
+      border: 2px solid #fffbeb;
+      color: #fffbeb;
+      padding: 0.875rem 1.5rem;
+      font-family: 'Questrial', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-align: left;
+    }
+    button:hover {
+      background: #fffbeb;
+      color: #644ac9;
+    }
+    .main {
+      flex: 1;
+      padding: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .welcome {
+      text-align: center;
+      color: #6c664b;
+      max-width: 400px;
+    }
+    .welcome h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #a3144d;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div>
+      <h1># TOMO</h1>
+      <div class="subtitle">Markdown Reader</div>
+    </div>
+    <button id="open-file">📄 Open File</button>
+    <button id="theme-toggle">☀︎ Toggle Theme</button>
+  </div>
+  <div class="main">
+    <div class="welcome">
+      <h2>Welcome to TOMO</h2>
+      <p>Select a markdown file from the sidebar or drag and drop it anywhere on this area to start reading.</p>
+    </div>
+  </div>
+</body>
+</html>

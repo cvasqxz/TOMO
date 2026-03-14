@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TOMO - Design 30: Brutalist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&family=Kode+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Kode Mono', monospace;
+      background: #fffbeb;
+      color: #1f1f1f;
+      min-height: 100vh;
+      padding: 0;
+    }
+    .brutal-header {
+      background: #1f1f1f;
+      color: #fffbeb;
+      padding: 1rem 2rem;
+      border-bottom: 8px solid #cb3a2a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo-brutal {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    .nav-brutal {
+      display: flex;
+      gap: 0;
+    }
+    .nav-brutal button {
+      background: #1f1f1f;
+      border: 3px solid #fffbeb;
+      border-left: none;
+      color: #fffbeb;
+      padding: 0.5rem 1rem;
+      font-family: 'Kode Mono', monospace;
+      cursor: pointer;
+      transition: all 0.1s;
+    }
+    .nav-brutal button:first-child {
+      border-left: 3px solid #fffbeb;
+    }
+    .nav-brutal button:hover {
+      background: #cb3a2a;
+      color: #1f1f1f;
+    }
+    .hero-brutal {
+      padding: 4rem 2rem;
+      background: #fffbeb;
+      border-bottom: 8px solid #1f1f1f;
+    }
+    .container-brutal {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 8rem;
+      line-height: 0.9;
+      margin-bottom: 1rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #1f1f1f;
+      text-shadow:
+        4px 4px 0 #cb3a2a,
+        8px 8px 0 #644ac9;
+    }
+    .subtitle-brutal {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+    }
+    .actions-brutal {
+      display: flex;
+      gap: 0;
+      margin-bottom: 2rem;
+    }
+    .btn-brutal {
+      background: #1f1f1f;
+      border: 5px solid #1f1f1f;
+      color: #fffbeb;
+      padding: 1.5rem 3rem;
+      font-family: 'Kode Mono', monospace;
+      font-size: 1.25rem;
+      cursor: pointer;
+      transition: all 0.1s;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .btn-brutal:hover {
+      background: #fffbeb;
+      color: #1f1f1f;
+      transform: translate(-4px, -4px);
+      box-shadow: 4px 4px 0 #cb3a2a;
+    }
+    .btn-brutal:active {
+      transform: translate(0, 0);
+      box-shadow: none;
+    }
+    .features-brutal {
+      background: #1f1f1f;
+      color: #fffbeb;
+      padding: 3rem 2rem;
+      border: 5px solid #cb3a2a;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    .feature-item {
+      border: 3px solid #fffbeb;
+      padding: 1.5rem;
+    }
+    .feature-num {
+      font-size: 3rem;
+      color: #cb3a2a;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="brutal-header">
+    <div class="logo-brutal">TOMO</div>
+    <div class="nav-brutal">
+      <button id="open-file">OPEN</button>
+      <button id="theme-toggle">THEME</button>
+      <button>HELP</button>
+    </div>
+  </div>
+
+  <div class="hero-brutal">
+    <div class="container-brutal">
+      <h1>TOMO</h1>
+      <div class="subtitle-brutal">Markdown Reader /// Est. 2024</div>
+      <div class="actions-brutal">
+        <button class="btn-brutal" id="open-file-2">
+          OPEN FILE
+        </button>
+      </div>
+
+      <div class="features-brutal">
+        <div class="feature-grid">
+          <div class="feature-item">
+            <div class="feature-num">01</div>
+            <div>FAST RENDERING</div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-num">02</div>
+            <div>SYNTAX HIGHLIGHT</div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-num">03</div>
+            <div>DUAL THEMES</div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-num">04</div>
+            <div>DRAG & DROP</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

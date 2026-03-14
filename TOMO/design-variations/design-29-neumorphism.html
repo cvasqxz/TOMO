@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TOMO - Design 29: Neumorphism</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&family=Kode+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Questrial', sans-serif;
+      background: #e8ddd0;
+      color: #1f1f1f;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 500px;
+      width: 100%;
+    }
+    .card-neu {
+      background: #e8ddd0;
+      border-radius: 30px;
+      padding: 3rem;
+      box-shadow:
+        20px 20px 60px #c5beb4,
+        -20px -20px 60px #fffcec;
+    }
+    h1 {
+      font-size: 3.5rem;
+      font-family: 'Kode Mono', monospace;
+      color: #644ac9;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .subtitle {
+      text-align: center;
+      color: #6c664b;
+      margin-bottom: 3rem;
+      font-size: 0.875rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .btn-neu {
+      width: 100%;
+      background: #e8ddd0;
+      border: none;
+      border-radius: 20px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      font-family: 'Questrial', sans-serif;
+      font-size: 1rem;
+      color: #1f1f1f;
+      cursor: pointer;
+      box-shadow:
+        8px 8px 16px #c5beb4,
+        -8px -8px 16px #fffcec;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .btn-neu:hover {
+      box-shadow:
+        4px 4px 8px #c5beb4,
+        -4px -4px 8px #fffcec;
+    }
+    .btn-neu:active {
+      box-shadow:
+        inset 4px 4px 8px #c5beb4,
+        inset -4px -4px 8px #fffcec;
+    }
+    .btn-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: #e8ddd0;
+      box-shadow:
+        4px 4px 8px #c5beb4,
+        -4px -4px 8px #fffcec;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+    .drop-zone-neu {
+      background: #e8ddd0;
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      color: #6c664b;
+      box-shadow:
+        inset 8px 8px 16px #c5beb4,
+        inset -8px -8px 16px #fffcec;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card-neu">
+      <h1># TOMO</h1>
+      <div class="subtitle">Markdown Reader</div>
+
+      <button class="btn-neu" id="open-file">
+        <span>Open Markdown File</span>
+        <div class="btn-icon">📄</div>
+      </button>
+
+      <button class="btn-neu" id="theme-toggle">
+        <span>Switch Theme</span>
+        <div class="btn-icon">☀︎</div>
+      </button>
+
+      <div class="drop-zone-neu">
+        Drop your .md file here
+      </div>
+    </div>
+  </div>
+</body>
+</html>

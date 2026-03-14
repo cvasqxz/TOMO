@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TOMO - Design 05: Grid</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&family=Kode+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Questrial', sans-serif;
+      background: #fffbeb;
+      color: #1f1f1f;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      min-height: 100vh;
+      gap: 1px;
+      background: #cfcfde;
+    }
+    .cell {
+      background: #fffbeb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+    .cell:hover {
+      background: #f5f3f0;
+    }
+    .logo {
+      grid-column: 2;
+      grid-row: 2;
+      font-size: 3rem;
+      font-family: 'Kode Mono', monospace;
+      color: #644ac9;
+      text-align: center;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .subtitle {
+      font-size: 0.875rem;
+      color: #6c664b;
+      font-family: 'Questrial', sans-serif;
+    }
+    .action {
+      cursor: pointer;
+      font-size: 2rem;
+      transition: all 0.3s;
+    }
+    .action:hover {
+      transform: scale(1.2);
+    }
+    #open-file {
+      grid-column: 1;
+      grid-row: 2;
+      color: #a3144d;
+    }
+    #theme-toggle {
+      grid-column: 3;
+      grid-row: 2;
+      color: #036a96;
+    }
+    .info {
+      grid-column: 1 / -1;
+      grid-row: 3;
+      text-align: center;
+      color: #6c664b;
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="cell"></div>
+  <div class="cell"></div>
+  <div class="cell"></div>
+
+  <div class="cell action" id="open-file">📂</div>
+  <div class="cell logo">
+    <div># TOMO</div>
+    <div class="subtitle">Markdown Reader</div>
+  </div>
+  <div class="cell action" id="theme-toggle">☀︎</div>
+
+  <div class="cell info">
+    Drop your markdown file anywhere or click the folder icon
+  </div>
+</body>
+</html>

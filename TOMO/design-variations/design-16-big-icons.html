@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TOMO - Design 16: Big Icons</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&family=Kode+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Questrial', sans-serif;
+      background: #fffbeb;
+      color: #1f1f1f;
+      min-height: 100vh;
+      padding: 3rem;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    h1 {
+      font-size: 3rem;
+      font-family: 'Kode Mono', monospace;
+      color: #a3144d;
+      margin-bottom: 0.5rem;
+    }
+    .tagline {
+      color: #6c664b;
+      font-size: 1rem;
+    }
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .icon-card {
+      background: white;
+      border: 2px solid #e8ddd0;
+      border-radius: 16px;
+      padding: 3rem 2rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .icon-card:hover {
+      border-color: #644ac9;
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(100, 74, 201, 0.1);
+    }
+    .icon {
+      font-size: 5rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    .icon-title {
+      font-size: 1.25rem;
+      color: #1f1f1f;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .icon-desc {
+      font-size: 0.875rem;
+      color: #6c664b;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1># TOMO</h1>
+    <div class="tagline">Your Markdown Reading Companion</div>
+  </div>
+
+  <div class="icon-grid">
+    <div class="icon-card" id="open-file">
+      <span class="icon">📂</span>
+      <div class="icon-title">Open File</div>
+      <div class="icon-desc">Browse and select your markdown file</div>
+    </div>
+
+    <div class="icon-card">
+      <span class="icon">📥</span>
+      <div class="icon-title">Drop Zone</div>
+      <div class="icon-desc">Drag and drop files here</div>
+    </div>
+
+    <div class="icon-card" id="theme-toggle">
+      <span class="icon">🌓</span>
+      <div class="icon-title">Toggle Theme</div>
+      <div class="icon-desc">Switch between light and dark</div>
+    </div>
+
+    <div class="icon-card">
+      <span class="icon">⚡</span>
+      <div class="icon-title">Quick Read</div>
+      <div class="icon-desc">Fast markdown rendering</div>
+    </div>
+  </div>
+</body>
+</html>

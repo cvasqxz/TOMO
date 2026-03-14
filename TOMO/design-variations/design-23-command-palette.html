@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TOMO - Design 23: Command Palette</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&family=Kode+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Questrial', sans-serif;
+      background: #fffbeb;
+      color: #1f1f1f;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .palette {
+      max-width: 600px;
+      width: 100%;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      overflow: hidden;
+    }
+    .header {
+      background: linear-gradient(135deg, #644ac9, #a3144d);
+      padding: 2rem;
+      text-align: center;
+      color: white;
+    }
+    h1 {
+      font-size: 2rem;
+      font-family: 'Kode Mono', monospace;
+      margin-bottom: 0.5rem;
+    }
+    .search {
+      background: white;
+      border: none;
+      padding: 1rem 1.5rem;
+      width: 100%;
+      font-family: 'Questrial', sans-serif;
+      font-size: 1rem;
+      border-bottom: 2px solid #e8ddd0;
+      outline: none;
+    }
+    .search::placeholder {
+      color: #6c664b;
+    }
+    .commands {
+      padding: 1rem 0;
+    }
+    .command {
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      border-left: 4px solid transparent;
+    }
+    .command:hover {
+      background: #f5f3f0;
+      border-left-color: #644ac9;
+    }
+    .command-icon {
+      width: 32px;
+      height: 32px;
+      background: #f5f3f0;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      font-size: 1.125rem;
+    }
+    .command-content {
+      flex: 1;
+    }
+    .command-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .command-desc {
+      font-size: 0.875rem;
+      color: #6c664b;
+    }
+    .command-shortcut {
+      font-family: 'Kode Mono', monospace;
+      font-size: 0.75rem;
+      background: #e8ddd0;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      color: #1f1f1f;
+    }
+    .command-wrapper {
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="palette">
+    <div class="header">
+      <h1># TOMO</h1>
+      <p>Command Palette</p>
+    </div>
+
+    <input type="text" class="search" placeholder="Type a command or search...">
+
+    <div class="commands">
+      <div class="command" id="open-file">
+        <div class="command-wrapper">
+          <div class="command-icon">📄</div>
+          <div class="command-content">
+            <div class="command-title">Open File</div>
+            <div class="command-desc">Browse and open a markdown file</div>
+          </div>
+        </div>
+        <div class="command-shortcut">⌘ O</div>
+      </div>
+
+      <div class="command" id="theme-toggle">
+        <div class="command-wrapper">
+          <div class="command-icon">🌓</div>
+          <div class="command-content">
+            <div class="command-title">Toggle Theme</div>
+            <div class="command-desc">Switch between light and dark mode</div>
+          </div>
+        </div>
+        <div class="command-shortcut">⌘ T</div>
+      </div>
+
+      <div class="command">
+        <div class="command-wrapper">
+          <div class="command-icon">🔍</div>
+          <div class="command-content">
+            <div class="command-title">Search Document</div>
+            <div class="command-desc">Find text in current document</div>
+          </div>
+        </div>
+        <div class="command-shortcut">⌘ F</div>
+      </div>
+
+      <div class="command">
+        <div class="command-wrapper">
+          <div class="command-icon">📥</div>
+          <div class="command-content">
+            <div class="command-title">Drag & Drop Zone</div>
+            <div class="command-desc">Drop your markdown file anywhere</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

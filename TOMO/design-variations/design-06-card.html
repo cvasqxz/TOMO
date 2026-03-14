@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TOMO - Design 06: Card</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&family=Kode+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Questrial', sans-serif;
+      background: linear-gradient(135deg, #282a36 0%, #44475a 100%);
+      color: #f8f8f2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    .card {
+      background: #282a36;
+      border: 1px solid #44475a;
+      border-radius: 16px;
+      padding: 3rem;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #44475a;
+    }
+    h1 {
+      font-size: 3rem;
+      font-family: 'Kode Mono', monospace;
+      background: linear-gradient(135deg, #bd93f9, #ff79c6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .subtitle {
+      font-size: 0.875rem;
+      color: #6272a4;
+      margin-top: 0.5rem;
+      letter-spacing: 0.2em;
+    }
+    .action-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    button {
+      background: #44475a;
+      border: none;
+      color: #f8f8f2;
+      padding: 1.25rem;
+      border-radius: 8px;
+      font-family: 'Questrial', sans-serif;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    button:hover {
+      background: #bd93f9;
+      transform: translateY(-2px);
+    }
+    .hint {
+      text-align: center;
+      color: #6272a4;
+      font-size: 0.875rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <h1># TOMO</h1>
+      <div class="subtitle">MARKDOWN READER</div>
+    </div>
+    <div class="action-group">
+      <button id="open-file">
+        <span>Open Markdown File</span>
+        <span>📄</span>
+      </button>
+      <button id="theme-toggle">
+        <span>Toggle Theme</span>
+        <span>☾</span>
+      </button>
+    </div>
+    <div class="hint">
+      or drag & drop your .md file here
+    </div>
+  </div>
+</body>
+</html>

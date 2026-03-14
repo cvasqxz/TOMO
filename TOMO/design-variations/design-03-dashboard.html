@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TOMO - Design 03: Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&family=Kode+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Questrial', sans-serif;
+      background: #282a36;
+      color: #f8f8f2;
+      padding: 2rem;
+      min-height: 100vh;
+    }
+    .header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #44475a;
+      margin-bottom: 2rem;
+    }
+    h1 {
+      font-size: 2rem;
+      font-family: 'Kode Mono', monospace;
+      color: #50fa7b;
+    }
+    .tools {
+      display: flex;
+      gap: 1rem;
+    }
+    .tool {
+      width: 48px;
+      height: 48px;
+      background: #44475a;
+      border: none;
+      border-radius: 8px;
+      color: #f8f8f2;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      transition: all 0.2s;
+    }
+    .tool:hover {
+      background: #bd93f9;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      background: #44475a;
+      padding: 2rem;
+      border-radius: 12px;
+      border: 2px solid transparent;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    .card:hover {
+      border-color: #8be9fd;
+    }
+    .card-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: #8be9fd;
+    }
+    .card-desc {
+      color: #6272a4;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1># TOMO</h1>
+    <div class="tools">
+      <button class="tool" id="open-file">📁</button>
+      <button class="tool" id="theme-toggle">☾</button>
+    </div>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div class="card-title">Quick Open</div>
+      <div class="card-desc">Click to select a markdown file from your system</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Drag & Drop</div>
+      <div class="card-desc">Drop any .md or .markdown file here</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Recent Files</div>
+      <div class="card-desc">No recent files yet</div>
+    </div>
+  </div>
+</body>
+</html>

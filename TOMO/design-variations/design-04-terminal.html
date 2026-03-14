@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TOMO - Design 04: Terminal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&family=Kode+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Kode Mono', monospace;
+      background: #1f1f1f;
+      color: #50fa7b;
+      padding: 2rem;
+      min-height: 100vh;
+      font-size: 14px;
+    }
+    .terminal {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .prompt {
+      margin-bottom: 1rem;
+    }
+    .prompt-line {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+    .user { color: #ff79c6; }
+    .path { color: #8be9fd; }
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 16px;
+      background: #50fa7b;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+    .output {
+      color: #6272a4;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    .commands {
+      margin-top: 2rem;
+    }
+    .cmd {
+      padding: 0.5rem 0;
+      color: #f8f8f2;
+    }
+    .cmd:hover {
+      color: #bd93f9;
+      cursor: pointer;
+    }
+    .cmd::before {
+      content: '$ ';
+      color: #50fa7b;
+    }
+  </style>
+</head>
+<body>
+  <div class="terminal">
+    <div class="prompt">
+      <div class="prompt-line">
+        <span class="user">tomo</span>
+        <span>@</span>
+        <span class="path">reader</span>
+        <span>:</span>
+        <span class="path">~</span>
+        <span>$</span>
+        <span class="cursor"></span>
+      </div>
+    </div>
+
+    <div class="output">
+      TOMO Markdown Reader v0.1.0<br>
+      Ready to read your markdown files.
+    </div>
+
+    <div class="commands">
+      <div class="cmd" id="open-file">tomo --open</div>
+      <div class="cmd" id="theme-toggle">tomo --theme</div>
+      <div class="cmd">tomo --help</div>
+    </div>
+
+    <div class="output" style="margin-top: 2rem;">
+      Usage:<br>
+      • Click any command above<br>
+      • Drag and drop .md files<br>
+      • Use keyboard shortcuts
+    </div>
+  </div>
+</body>
+</html>

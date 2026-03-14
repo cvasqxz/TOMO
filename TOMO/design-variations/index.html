@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TOMO - Design Variations Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&family=Kode+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Questrial', sans-serif;
+      background: #282a36;
+      color: #f8f8f2;
+      padding: 3rem;
+      line-height: 1.6;
+    }
+    .header {
+      max-width: 1200px;
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3rem;
+      font-family: 'Kode Mono', monospace;
+      color: #50fa7b;
+      margin-bottom: 1rem;
+    }
+    .subtitle {
+      color: #6272a4;
+      font-size: 1.125rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #44475a;
+      border: 1px solid #6272a4;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: #f8f8f2;
+      transition: all 0.3s;
+      display: block;
+    }
+    .card:hover {
+      border-color: #bd93f9;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(189, 147, 249, 0.3);
+    }
+    .card-number {
+      font-family: 'Kode Mono', monospace;
+      font-size: 2rem;
+      color: #bd93f9;
+      margin-bottom: 0.5rem;
+    }
+    .card-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: #f8f8f2;
+    }
+    .card-desc {
+      font-size: 0.875rem;
+      color: #6272a4;
+    }
+    .tag {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background: #6272a4;
+      color: #f8f8f2;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      margin-top: 0.75rem;
+      margin-right: 0.5rem;
+    }
+    .info {
+      max-width: 1200px;
+      margin: 3rem auto 0;
+      padding: 2rem;
+      background: #44475a;
+      border-radius: 8px;
+      border-left: 4px solid #50fa7b;
+    }
+    .info h2 {
+      color: #50fa7b;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+    .info ul {
+      margin-left: 1.5rem;
+      color: #6272a4;
+    }
+    .info li {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1># TOMO Design Variations</h1>
+    <div class="subtitle">30 Minimalistas diseños para elegir el mejor</div>
+  </div>
+
+  <div class="grid">
+    <a href="design-01-centered.html" class="card">
+      <div class="card-number">01</div>
+      <div class="card-title">Centered</div>
+      <div class="card-desc">Todo absolutamente centrado, enfoque máximo en el logo y acciones</div>
+      <span class="tag">Dark</span>
+      <span class="tag">Simple</span>
+    </a>
+
+    <a href="design-02-sidebar.html" class="card">
+      <div class="card-number">02</div>
+      <div class="card-title">Sidebar</div>
+      <div class="card-desc">Barra lateral con navegación, estilo app moderna</div>
+      <span class="tag">Light</span>
+      <span class="tag">Dashboard</span>
+    </a>
+
+    <a href="design-03-dashboard.html" class="card">
+      <div class="card-number">03</div>
+      <div class="card-title">Dashboard</div>
+      <div class="card-desc">Diseño tipo dashboard con cards informativos</div>
+      <span class="tag">Dark</span>
+      <span class="tag">Cards</span>
+    </a>
+
+    <a href="design-04-terminal.html" class="card">
+      <div class="card-number">04</div>
+      <div class="card-title">Terminal</div>
+      <div class="card-desc">Interfaz estilo terminal de comandos, para developers</div>
+      <span class="tag">Dark</span>
+      <span class="tag">Monospace</span>
+    </a>
+
+    <a href="design-05-grid.html" class="card">
+      <div class="card-number">05</div>
+      <div class="card-title">Grid</div>
+      <div class="card-desc">Layout de grid simétrico 3x3, muy estructurado</div>
+      <span class="tag">Light</span>
+      <span class="tag">Geometric</span>
+    </a>
+
+    <a href="design-06-card.html" class="card">
+      <div class="card-number">06</div>
+      <div class="card-title">Card</div>
+      <div class="card-desc">Tarjeta flotante con gradiente, moderna y elegante</div>
+      <span class="tag">Dark</span>
+      <span class="tag">Gradient</span>
+    </a>
+
+    <a href="design-07-zen.html" class="card">
+      <div class="card-number">07</div>
+      <div class="card-title">Zen</div>
+      <div class="card-desc">Minimalismo japonés, ultra limpio con kanji</div>
+      <span class="tag">Light</span>
+      <span class="tag">Japanese</span>
+    </a>
+
+    <a href="design-08-vertical.html" class="card">
+      <div class="card-number">08</div>
+      <div class="card-title">Vertical</div>
+      <div class="card-desc">Layout vertical con secciones bien definidas</div>
+      <span class="tag">Dark</span>
+      <span class="tag">Sectioned</span>
+    </a>
+
+    <a href="design-09-magazine.html" class="card">
+      <div class="card-number">09</div>
+      <div class="card-title">Magazine</div>
+      <div class="card-desc">Diseño editorial tipo revista, tipografía grande</div>
+      <span class="tag">Light</span>
+      <span class="tag">Editorial</span>
+    </a>
+
+    <a href="design-10-asymmetric.html" class="card">
+      <div class="card-number">10</div>
+      <div class="card-title">Asymmetric</div>
+      <div class="card-desc">Layout asimétrico con texto vertical, creativo</div>
+      <span class="tag">Dark</span>
+      <span class="tag">Creative</span>
+    </a>
+
+    <a href="design-11-mobile-app.html" class="card">
+      <div class="card-number">11</div>
+      <div class="card-title">Mobile App</div>
+      <div class="card-desc">Interfaz tipo aplicación móvil con menú de items</div>
+      <span class="tag">Light</span>
+      <span class="tag">Mobile</span>
+    </a>
+
+    <a href="design-12-drag-visual.html" class="card">
+      <div class="card-number">12</div>
+      <div class="card-title">Drag Visual</div>
+      <div class="card-desc">Zona de arrastre visual con flechas animadas</div>
+      <span class="tag">Dark</span>
+      <span class="tag">Animated</span>
+    </a>
+
+    <a href="design-13-notion-style.html" class="card">
+      <div class="card-number">13</div>
+      <div class="card-title">Notion Style</div>
+      <div class="card-desc">Inspirado en Notion, sidebar fija y contenido principal</div>
+      <span class="tag">Light</span>
+      <span class="tag">Notion</span>
+    </a>
+
+    <a href="design-14-gradient.html" class="card">
+      <div class="card-number">14</div>
+      <div class="card-title">Gradient</div>
+      <div class="card-desc">Fondo con gradientes animados y efectos glassmorphism</div>
+      <span class="tag">Dark</span>
+      <span class="tag">Glassmorphism</span>
+    </a>
+
+    <a href="design-15-vscode.html" class="card">
+      <div class="card-number">15</div>
+      <div class="card-title">VS Code Style</div>
+      <div class="card-desc">Interfaz tipo editor de código con barra de actividades</div>
+      <span class="tag">Dark</span>
+      <span class="tag">IDE</span>
+    </a>
+
+    <a href="design-16-big-icons.html" class="card">
+      <div class="card-number">16</div>
+      <div class="card-title">Big Icons</div>
+      <div class="card-desc">Iconografía grande y clara, muy visual</div>
+      <span class="tag">Light</span>
+      <span class="tag">Icons</span>
+    </a>
+
+    <a href="design-17-presentation.html" class="card">
+      <div class="card-number">17</div>
+      <div class="card-title">Presentation</div>
+      <div class="card-desc">Estilo presentación de slides, muy impactante</div>
+      <span class="tag">Dark</span>
+      <span class="tag">Slides</span>
+    </a>
+
+    <a href="design-18-timeline.html" class="card">
+      <div class="card-number">18</div>
+      <div class="card-title">Timeline</div>
+      <div class="card-desc">Línea de tiempo vertical con pasos numerados</div>
+      <span class="tag">Light</span>
+      <span class="tag">Steps</span>
+    </a>
+
+    <a href="design-19-figma-style.html" class="card">
+      <div class="card-number">19</div>
+      <div class="card-title">Figma Style</div>
+      <div class="card-desc">Inspirado en Figma, con toolbar y paneles laterales</div>
+      <span class="tag">Dark</span>
+      <span class="tag">Design Tool</span>
+    </a>
+
+    <a href="design-20-ultra-minimal.html" class="card">
+      <div class="card-number">20</div>
+      <div class="card-title">Ultra Minimal</div>
+      <div class="card-desc">Máximo minimalismo, solo lo esencial</div>
+      <span class="tag">Light</span>
+      <span class="tag">Minimal</span>
+    </a>
+
+    <a href="design-21-split-screen.html" class="card">
+      <div class="card-number">21</div>
+      <div class="card-title">Split Screen</div>
+      <div class="card-desc">Pantalla dividida mostrando light y dark simultáneamente</div>
+      <span class="tag">Dual</span>
+      <span class="tag">Contrast</span>
+    </a>
+
+    <a href="design-22-layers.html" class="card">
+      <div class="card-number">22</div>
+      <div class="card-title">Layers</div>
+      <div class="card-desc">Tarjetas apiladas con efecto de capas rotadas</div>
+      <span class="tag">Dark</span>
+      <span class="tag">3D Effect</span>
+    </a>
+
+    <a href="design-23-command-palette.html" class="card">
+      <div class="card-number">23</div>
+      <div class="card-title">Command Palette</div>
+      <div class="card-desc">Estilo paleta de comandos con shortcuts de teclado</div>
+      <span class="tag">Light</span>
+      <span class="tag">Shortcuts</span>
+    </a>
+
+    <a href="design-24-bento.html" class="card">
+      <div class="card-number">24</div>
+      <div class="card-title">Bento Grid</div>
+      <div class="card-desc">Grid asimétrico estilo Bento Box japonés</div>
+      <span class="tag">Dark</span>
+      <span class="tag">Grid</span>
+    </a>
+
+    <a href="design-25-floating.html" class="card">
+      <div class="card-number">25</div>
+      <div class="card-title">Floating</div>
+      <div class="card-desc">Elementos flotantes con animaciones suaves</div>
+      <span class="tag">Light</span>
+      <span class="tag">Animated</span>
+    </a>
+
+    <a href="design-26-tabs.html" class="card">
+      <div class="card-number">26</div>
+      <div class="card-title">Tabs</div>
+      <div class="card-desc">Interfaz con pestañas estilo navegador o IDE</div>
+      <span class="tag">Dark</span>
+      <span class="tag">Tabs</span>
+    </a>
+
+    <a href="design-27-spotlight.html" class="card">
+      <div class="card-number">27</div>
+      <div class="card-title">Spotlight</div>
+      <div class="card-desc">Efecto de foco que sigue al cursor con glow</div>
+      <span class="tag">Dark</span>
+      <span class="tag">Interactive</span>
+    </a>
+
+    <a href="design-28-swiss.html" class="card">
+      <div class="card-number">28</div>
+      <div class="card-title">Swiss Design</div>
+      <div class="card-desc">Grid riguroso inspirado en diseño suizo</div>
+      <span class="tag">Light</span>
+      <span class="tag">Swiss</span>
+    </a>
+
+    <a href="design-29-neumorphism.html" class="card">
+      <div class="card-number">29</div>
+      <div class="card-title">Neumorphism</div>
+      <div class="card-desc">Soft UI con sombras internas y externas</div>
+      <span class="tag">Light</span>
+      <span class="tag">Neumorphic</span>
+    </a>
+
+    <a href="design-30-brutalist.html" class="card">
+      <div class="card-number">30</div>
+      <div class="card-title">Brutalist</div>
+      <div class="card-desc">Diseño brutal con bordes gruesos y tipografía bold</div>
+      <span class="tag">Light</span>
+      <span class="tag">Bold</span>
+    </a>
+  </div>
+
+  <div class="info">
+    <h2>Información</h2>
+    <ul>
+      <li><strong>Paleta de colores:</strong> Dracula (dark) y Alucard (light)</li>
+      <li><strong>Fuentes:</strong> Questrial (sans-serif) y Kode Mono (monospace)</li>
+      <li><strong>Todos los diseños:</strong> CSS embebido, modulares y listos para usar</li>
+      <li><strong>Funcionalidades:</strong> Botones de abrir archivo y cambiar tema en todos</li>
+      <li><strong>Concepto:</strong> Minimalismo con enfoque en lectura de markdown</li>
+    </ul>
+  </div>
+</body>
+</html>

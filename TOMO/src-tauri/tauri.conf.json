@@ -32,5 +32,18 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ]
+  },
+  "plugins": {
+    "cli": {
+      "description": "TOMO - A beautiful markdown reader",
+      "args": [
+        {
+          "name": "file",
+          "index": 1,
+          "takesValue": true,
+          "required": false
+        }
+      ]
+    }
   }
 }

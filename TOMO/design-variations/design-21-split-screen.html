@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TOMO - Design 21: Split Screen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&family=Kode+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Questrial', sans-serif;
+      display: flex;
+      min-height: 100vh;
+    }
+    .left {
+      flex: 1;
+      background: #282a36;
+      color: #f8f8f2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem;
+    }
+    .right {
+      flex: 1;
+      background: #fffbeb;
+      color: #1f1f1f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem;
+    }
+    .content {
+      max-width: 400px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 4rem;
+      font-family: 'Kode Mono', monospace;
+      margin-bottom: 2rem;
+    }
+    .left h1 { color: #bd93f9; }
+    .right h1 { color: #644ac9; }
+    .desc {
+      font-size: 1.125rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    .left .desc { color: #6272a4; }
+    .right .desc { color: #6c664b; }
+    button {
+      width: 100%;
+      padding: 1.25rem;
+      font-family: 'Questrial', sans-serif;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-bottom: 1rem;
+    }
+    .left button {
+      background: transparent;
+      border: 2px solid #bd93f9;
+      color: #bd93f9;
+    }
+    .left button:hover {
+      background: #bd93f9;
+      color: #282a36;
+    }
+    .right button {
+      background: #644ac9;
+      border: 2px solid #644ac9;
+      color: #fffbeb;
+    }
+    .right button:hover {
+      background: #a3144d;
+      border-color: #a3144d;
+    }
+  </style>
+</head>
+<body>
+  <div class="left">
+    <div class="content">
+      <h1># TOMO</h1>
+      <div class="desc">Dark theme enthusiast?<br>Choose your darkness</div>
+      <button id="open-file">Open Markdown</button>
+      <button id="theme-toggle">Switch to Light →</button>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="content">
+      <h1># TOMO</h1>
+      <div class="desc">Light theme lover?<br>Embrace the brightness</div>
+      <button id="open-file-2">Open Markdown</button>
+      <button id="theme-toggle-2">← Switch to Dark</button>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TOMO - Design 01: Centered</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&family=Kode+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Questrial', sans-serif;
+      background: #282a36;
+      color: #f8f8f2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    .container {
+      text-align: center;
+      max-width: 500px;
+    }
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 0.5rem;
+      color: #ff79c6;
+      font-family: 'Kode Mono', monospace;
+    }
+    .subtitle {
+      font-size: 1rem;
+      color: #6272a4;
+      margin-bottom: 3rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+    .actions {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    button {
+      background: transparent;
+      border: 2px solid #bd93f9;
+      color: #bd93f9;
+      padding: 1rem 2rem;
+      font-family: 'Questrial', sans-serif;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    button:hover {
+      background: #bd93f9;
+      color: #282a36;
+    }
+    .drop-zone {
+      border: 2px dashed #6272a4;
+      padding: 3rem;
+      border-radius: 8px;
+      color: #6272a4;
+      transition: all 0.3s;
+    }
+    .drop-zone:hover {
+      border-color: #bd93f9;
+      color: #bd93f9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1># TOMO</h1>
+    <div class="subtitle">Markdown Reader</div>
+    <div class="actions">
+      <button id="open-file">Open File</button>
+      <button id="theme-toggle">☾ Theme</button>
+    </div>
+    <div class="drop-zone">
+      Drop your .md file here<br>or use the button above
+    </div>
+  </div>
+</body>
+</html>

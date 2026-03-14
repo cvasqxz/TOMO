@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TOMO - Design 08: Vertical</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&family=Kode+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Questrial', sans-serif;
+      background: #282a36;
+      color: #f8f8f2;
+      display: flex;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 400px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+    .section {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .section-title {
+      font-size: 0.75rem;
+      color: #6272a4;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      border-bottom: 1px solid #44475a;
+      padding-bottom: 0.5rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-family: 'Kode Mono', monospace;
+      color: #50fa7b;
+    }
+    .desc {
+      color: #6272a4;
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+    .btn {
+      background: transparent;
+      border: 1px solid #bd93f9;
+      color: #bd93f9;
+      padding: 1rem;
+      font-family: 'Questrial', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .btn:hover {
+      background: #bd93f9;
+      color: #282a36;
+    }
+    .drop-area {
+      border: 2px dashed #44475a;
+      padding: 2rem;
+      text-align: center;
+      color: #6272a4;
+      transition: all 0.3s;
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .drop-area:hover {
+      border-color: #8be9fd;
+      color: #8be9fd;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="section">
+      <div class="section-title">Application</div>
+      <h1># TOMO</h1>
+      <div class="desc">A minimal markdown reader for focused reading</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Actions</div>
+      <button class="btn" id="open-file">
+        <span>Open File</span>
+        <span>→</span>
+      </button>
+      <button class="btn" id="theme-toggle">
+        <span>Switch Theme</span>
+        <span>☾</span>
+      </button>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Drop Zone</div>
+      <div class="drop-area">
+        Drag & Drop<br>.md or .markdown
+      </div>
+    </div>
+  </div>
+</body>
+</html>
