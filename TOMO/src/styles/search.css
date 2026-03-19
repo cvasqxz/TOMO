@@ -20,16 +20,19 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background: var(--dracula-bg) !important;
   padding: 0.5rem 1rem;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   border: 2px solid var(--dracula-purple);
   min-width: 420px;
 }
 
-body:not([data-theme="dark"]) .search-bar-content {
-  background: var(--alucard-bg) !important;
+[data-theme="dark"] .search-bar-content {
+  background: var(--dracula-bg);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+[data-theme="light"] .search-bar-content {
+  background: var(--alucard-bg);
   border-color: var(--alucard-purple);
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
@@ -41,12 +44,15 @@ body:not([data-theme="dark"]) .search-bar-content {
   font-size: 0.9rem;
   border: 1px solid var(--pico-border-color);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.05) !important;
   color: inherit !important;
 }
 
-body:not([data-theme="dark"]) #search-input {
-  background: rgba(0, 0, 0, 0.03) !important;
+[data-theme="dark"] #search-input {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] #search-input {
+  background: rgba(0, 0, 0, 0.03);
   border-color: #d9cfc5;
 }
 
@@ -63,10 +69,13 @@ body:not([data-theme="dark"]) #search-input {
   text-align: center;
   font-weight: 600;
   font-family: var(--font-mono);
+}
+
+[data-theme="dark"] #search-count {
   color: var(--dracula-purple);
 }
 
-body:not([data-theme="dark"]) #search-count {
+[data-theme="light"] #search-count {
   color: var(--alucard-purple);
 }
 
@@ -81,29 +90,32 @@ body:not([data-theme="dark"]) #search-count {
   border-radius: 8px;
 }
 
-/* Search Highlight - ORANGE */
+/* Search Highlight */
 mark {
-  background: var(--dracula-orange) !important;
-  color: #000 !important;
   border-radius: 2px;
   padding: 0 2px;
   transition: background-color 0.2s ease;
 }
 
-mark.current {
+[data-theme="dark"] mark {
+  background: var(--dracula-orange) !important;
+  color: #000 !important;
+}
+
+[data-theme="dark"] mark.current {
   background: var(--dracula-yellow) !important;
   color: #000 !important;
   box-shadow: 0 0 0 2px var(--dracula-yellow);
   z-index: 1;
 }
 
-body:not([data-theme="dark"]) mark {
+[data-theme="light"] mark {
   background: var(--alucard-orange) !important;
   color: #fff !important;
 }
 
-body:not([data-theme="dark"]) mark.current {
-  background: #f1c40f !important; /* Yellow for Alucard */
+[data-theme="light"] mark.current {
+  background: #f1c40f !important;
   color: #000 !important;
   box-shadow: 0 0 0 2px #f1c40f;
 }

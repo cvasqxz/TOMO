@@ -6,10 +6,7 @@
 }
 
 /* All reader prose uses Questrial */
-.reader-content {
-  font-family: var(--font-base) !important;
-}
-
+.reader-content,
 .reader-content p,
 .reader-content li,
 .reader-content blockquote,
@@ -30,5 +27,4 @@
   font-family: var(--font-mono) !important;
   color: inherit;
   font-weight: 700;
-  margin-top: 1.5rem;
 }

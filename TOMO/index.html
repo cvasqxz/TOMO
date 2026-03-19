@@ -11,11 +11,11 @@
 <body>
   <!-- Welcome Screen (shown when no file is loaded) -->
   <div id="welcome-screen" class="welcome-container">
-    <h1 class="welcome-title" id="welcome-title">#TOMO</h1>
+    <h1 class="welcome-title gradient-text" id="welcome-title">#TOMO</h1>
     <div class="welcome-divider" id="welcome-divider"></div>
     <div class="welcome-buttons" id="welcome-buttons">
-      <a id="open-file" class="welcome-btn">Open File</a>
-      <a id="theme-toggle" class="welcome-btn">Toggle Theme</a>
+      <button id="open-file" class="welcome-btn">Open File</button>
+      <button id="theme-toggle" class="welcome-btn">Toggle Theme</button>
     </div>
   </div>
 
@@ -52,7 +52,7 @@
   <div id="reader-view" class="reader-hidden">
     <header class="reader-header">
       <div class="reader-header-left">
-        <div class="reader-logo">TOMO</div>
+        <div class="reader-logo gradient-text">TOMO</div>
         <span id="file-name" class="reader-file-name"></span>
       </div>
     </header>
@@ -62,7 +62,7 @@
         <!-- Markdown content will be rendered here -->
       </main>
 
-      <aside id="nav-map" class="reader-nav-map">
+      <aside id="nav-map" class="reader-nav-map" role="navigation" aria-label="Document sections">
         <div class="nav-map-title">Navigation</div>
         <ul class="nav-map-list" id="nav-map-list">
           <!-- Navigation will be generated dynamically -->

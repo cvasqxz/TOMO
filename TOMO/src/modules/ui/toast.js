@@ -3,6 +3,8 @@
  * Displays temporary notification messages to the user
  */
 
+import { escapeHtml } from "../core/utils.js";
+
 const TOAST_DURATION = 3000; // 3 seconds
 
 /**
@@ -22,7 +24,7 @@ export function showToast(message, type = 'info') {
 
   document.body.appendChild(toast);
 
-  // Entrada animation
+  // Entrance animation
   setTimeout(() => toast.classList.add('show'), 10);
 
   // Auto-hide after TOAST_DURATION
@@ -30,15 +32,4 @@ export function showToast(message, type = 'info') {
     toast.classList.remove('show');
     setTimeout(() => toast.remove(), 300);
   }, TOAST_DURATION);
-}
-
-/**
- * Escape HTML special characters to prevent XSS
- * @param {string} text - The text to escape
- * @returns {string} Escaped HTML
- */
-function escapeHtml(text) {
-  const div = document.createElement('div');
-  div.textContent = text;
-  return div.innerHTML;
 }

@@ -6,21 +6,15 @@ html, body {
 }
 
 /* Dark Theme (Default/Dracula) */
-html, body, [data-theme="dark"] body {
-  background-color: var(--dracula-bg) !important;
-  color: var(--dracula-fg) !important;
+[data-theme="dark"] {
+  background-color: var(--dracula-bg);
+  color: var(--dracula-fg);
 }
 
 /* Light Theme (Alucard) */
-[data-theme="light"] body,
-body:not([data-theme="dark"]),
-html[data-theme="light"] {
-  background-color: var(--alucard-bg) !important;
-  color: var(--alucard-fg) !important;
-}
-
-body {
-  padding: 0;
+[data-theme="light"] {
+  background-color: var(--alucard-bg);
+  color: var(--alucard-fg);
 }
 
 /* Reset Pico CSS styles that interfere with custom design */
@@ -28,12 +22,8 @@ button {
   font-weight: inherit;
 }
 
-/* Reset <a> tags used as buttons in welcome screen */
-a.welcome-btn {
-  display: inline-block;
-  text-decoration: none;
-  font-weight: 400;
-  color: inherit;
+.welcome-btn {
+  -webkit-text-fill-color: inherit;
 }
 
 .container {
@@ -64,8 +54,7 @@ a.welcome-btn {
 }
 
 /* Dark theme markdown headings */
-[data-theme="dark"] .reader-content h1,
-body:not([data-theme="light"]) .reader-content h1 {
+[data-theme="dark"] .reader-content h1 {
   background: linear-gradient(135deg, var(--dracula-cyan), var(--dracula-pink));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -73,14 +62,12 @@ body:not([data-theme="light"]) .reader-content h1 {
   border-bottom: 3px solid var(--dracula-selection);
 }
 
-[data-theme="dark"] .reader-content h2,
-body:not([data-theme="light"]) .reader-content h2 {
+[data-theme="dark"] .reader-content h2 {
   font-size: 2rem;
   color: var(--dracula-pink);
 }
 
-[data-theme="dark"] .reader-content h3,
-body:not([data-theme="light"]) .reader-content h3 {
+[data-theme="dark"] .reader-content h3 {
   font-size: 1.5rem;
   color: var(--dracula-purple);
 }
@@ -116,13 +103,11 @@ body:not([data-theme="light"]) .reader-content h3 {
 }
 
 /* Dark theme links */
-[data-theme="dark"] .reader-content a,
-body:not([data-theme="light"]) .reader-content a {
+[data-theme="dark"] .reader-content a {
   color: var(--dracula-cyan);
 }
 
-[data-theme="dark"] .reader-content a:hover,
-body:not([data-theme="light"]) .reader-content a:hover {
+[data-theme="dark"] .reader-content a:hover {
   border-bottom-color: var(--dracula-cyan);
 }
 
@@ -142,8 +127,7 @@ body:not([data-theme="light"]) .reader-content a:hover {
 }
 
 /* Dark theme blockquotes */
-[data-theme="dark"] .reader-content blockquote,
-body:not([data-theme="light"]) .reader-content blockquote {
+[data-theme="dark"] .reader-content blockquote {
   border-left: 4px solid var(--dracula-cyan);
   color: var(--dracula-comment);
 }

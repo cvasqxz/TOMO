@@ -1,87 +1,85 @@
 /* ===== LIGHT THEME (ALUCARD) ===== */
-body:not([data-theme="dark"]) {
-  background-color: var(--alucard-bg) !important;
-  color: var(--alucard-fg) !important;
+[data-theme="light"] {
+  background-color: var(--alucard-bg);
+  color: var(--alucard-fg);
   --pico-table-border-color: #d9cfc5;
   --pico-table-row-stripped-background-color: #f5f3f0;
 }
 
-body:not([data-theme="dark"]) header {
+[data-theme="light"] header {
   border-color: var(--alucard-purple);
 }
 
-/* Removed problematic filter for light theme */
-
-body:not([data-theme="dark"]) th {
+[data-theme="light"] th {
   color: var(--alucard-red) !important;
   border-bottom: 2px solid var(--alucard-red);
 }
 
-body:not([data-theme="dark"]) pre {
+[data-theme="light"] pre {
   background: #f5ede1 !important;
   border: 1px solid #d9cfc5;
 }
 
-body:not([data-theme="dark"]) pre code.hljs {
+[data-theme="light"] pre code.hljs {
   color: var(--alucard-fg) !important;
 }
 
-body:not([data-theme="dark"]) code:not(.hljs) {
+[data-theme="light"] code:not(.hljs) {
   background: #e8ddd0;
   color: var(--alucard-red);
 }
 
-/* Alucard Code Syntax (Light adaptation of Dracula logic) */
-body:not([data-theme="dark"]) .hljs-keyword,
-body:not([data-theme="dark"]) .hljs-selector-tag,
-body:not([data-theme="dark"]) .hljs-literal,
-body:not([data-theme="dark"]) .hljs-section,
-body:not([data-theme="dark"]) .hljs-link {
+/* Alucard Code Syntax */
+[data-theme="light"] .hljs-keyword,
+[data-theme="light"] .hljs-selector-tag,
+[data-theme="light"] .hljs-literal,
+[data-theme="light"] .hljs-section,
+[data-theme="light"] .hljs-link {
   color: var(--alucard-pink) !important;
 }
 
-body:not([data-theme="dark"]) .hljs-function,
-body:not([data-theme="dark"]) .hljs-title,
-body:not([data-theme="dark"]) .hljs-name,
-body:not([data-theme="dark"]) .hljs-selector-id,
-body:not([data-theme="dark"]) .hljs-selector-class {
+[data-theme="light"] .hljs-function,
+[data-theme="light"] .hljs-title,
+[data-theme="light"] .hljs-name,
+[data-theme="light"] .hljs-selector-id,
+[data-theme="light"] .hljs-selector-class {
   color: var(--alucard-green) !important;
 }
 
-body:not([data-theme="dark"]) .hljs-number,
-body:not([data-theme="dark"]) .hljs-meta,
-body:not([data-theme="dark"]) .hljs-built_in,
-body:not([data-theme="dark"]) .hljs-builtin-name,
-body:not([data-theme="dark"]) .hljs-attr,
-body:not([data-theme="dark"]) .hljs-attribute,
-body:not([data-theme="dark"]) .hljs-variable,
-body:not([data-theme="dark"]) .hljs-subst {
+[data-theme="light"] .hljs-number,
+[data-theme="light"] .hljs-meta,
+[data-theme="light"] .hljs-built_in,
+[data-theme="light"] .hljs-builtin-name,
+[data-theme="light"] .hljs-attr,
+[data-theme="light"] .hljs-attribute,
+[data-theme="light"] .hljs-variable,
+[data-theme="light"] .hljs-subst {
   color: var(--alucard-cyan) !important;
 }
 
-body:not([data-theme="dark"]) .hljs-string,
-body:not([data-theme="dark"]) .hljs-type,
-body:not([data-theme="dark"]) .hljs-params,
-body:not([data-theme="dark"]) .hljs-bullet,
-body:not([data-theme="dark"]) .hljs-addition {
+[data-theme="light"] .hljs-string,
+[data-theme="light"] .hljs-type,
+[data-theme="light"] .hljs-params,
+[data-theme="light"] .hljs-bullet,
+[data-theme="light"] .hljs-addition {
   color: var(--alucard-yellow) !important;
 }
 
-body:not([data-theme="dark"]) .hljs-comment,
-body:not([data-theme="dark"]) .hljs-quote,
-body:not([data-theme="dark"]) .hljs-deletion {
+[data-theme="light"] .hljs-comment,
+[data-theme="light"] .hljs-quote,
+[data-theme="light"] .hljs-deletion {
   color: var(--alucard-comment) !important;
 }
 
-body:not([data-theme="dark"]) .hljs-keyword,
-body:not([data-theme="dark"]) .hljs-selector-tag {
+[data-theme="light"] .hljs-keyword,
+[data-theme="light"] .hljs-selector-tag {
   font-weight: bold;
 }
 
 /* ===== DARK THEME (DRACULA OFFICIAL) ===== */
-[data-theme="dark"] body {
-  background-color: var(--dracula-bg) !important;
-  color: var(--dracula-fg) !important;
+[data-theme="dark"] {
+  background-color: var(--dracula-bg);
+  color: var(--dracula-fg);
   --pico-table-border-color: var(--dracula-selection);
   --pico-table-row-stripped-background-color: var(--dracula-selection);
 }
@@ -89,8 +87,6 @@ body:not([data-theme="dark"]) .hljs-selector-tag {
 [data-theme="dark"] header {
   border-color: var(--dracula-purple);
 }
-
-/* Removed problematic filter that was making buttons invisible */
 
 [data-theme="dark"] th {
   color: var(--dracula-cyan) !important;

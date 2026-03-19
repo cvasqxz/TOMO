@@ -24,7 +24,7 @@ async function initializeApp() {
     initializeEventListeners(markdownParser);
 
     // Listen for CLI file open events
-    const unlisten = await getCurrentWindow().listen("cli-open-file", async (event) => {
+    await getCurrentWindow().listen("cli-open-file", async (event) => {
       const filePath = event.payload;
       if (filePath) {
         await loadMarkdown(filePath, markdownParser);
