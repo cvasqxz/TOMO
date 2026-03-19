@@ -10,10 +10,7 @@ body:not([data-theme="dark"]) header {
   border-color: var(--alucard-purple);
 }
 
-body:not([data-theme="dark"]) #open-file,
-body:not([data-theme="dark"]) #theme-toggle {
-  filter: brightness(1.1) saturate(1.15);
-}
+/* Removed problematic filter for light theme */
 
 body:not([data-theme="dark"]) th {
   color: var(--alucard-red) !important;
@@ -93,10 +90,7 @@ body:not([data-theme="dark"]) .hljs-selector-tag {
   border-color: var(--dracula-purple);
 }
 
-[data-theme="dark"] #open-file,
-[data-theme="dark"] #theme-toggle {
-  filter: invert(0.9) hue-rotate(20deg);
-}
+/* Removed problematic filter that was making buttons invisible */
 
 [data-theme="dark"] th {
   color: var(--dracula-cyan) !important;

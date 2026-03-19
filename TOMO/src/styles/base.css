@@ -20,7 +20,20 @@ html[data-theme="light"] {
 }
 
 body {
-  padding: 2rem 0;
+  padding: 0;
+}
+
+/* Reset Pico CSS styles that interfere with custom design */
+button {
+  font-weight: inherit;
+}
+
+/* Reset <a> tags used as buttons in welcome screen */
+a.welcome-btn {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 400;
+  color: inherit;
 }
 
 .container {
@@ -29,16 +42,124 @@ body {
   box-shadow: none !important;
 }
 
-header {
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid transparent;
-}
-
-article#content-area {
+/* Reader content area - remove Pico styles */
+#content-area {
   background: transparent !important;
   border: none !important;
   padding: 0 !important;
   margin: 0 !important;
   box-shadow: none !important;
+}
+
+/* Markdown content spacing */
+.reader-content h1, .reader-content h2, .reader-content h3,
+.reader-content h4, .reader-content h5, .reader-content h6 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.reader-content h1 {
+  font-size: 2.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/* Dark theme markdown headings */
+[data-theme="dark"] .reader-content h1,
+body:not([data-theme="light"]) .reader-content h1 {
+  background: linear-gradient(135deg, var(--dracula-cyan), var(--dracula-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  border-bottom: 3px solid var(--dracula-selection);
+}
+
+[data-theme="dark"] .reader-content h2,
+body:not([data-theme="light"]) .reader-content h2 {
+  font-size: 2rem;
+  color: var(--dracula-pink);
+}
+
+[data-theme="dark"] .reader-content h3,
+body:not([data-theme="light"]) .reader-content h3 {
+  font-size: 1.5rem;
+  color: var(--dracula-purple);
+}
+
+/* Light theme markdown headings */
+[data-theme="light"] .reader-content h1 {
+  background: linear-gradient(135deg, var(--alucard-cyan), var(--alucard-red));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  border-bottom: 3px solid var(--alucard-selection);
+}
+
+[data-theme="light"] .reader-content h2 {
+  font-size: 2rem;
+  color: var(--alucard-pink);
+}
+
+[data-theme="light"] .reader-content h3 {
+  font-size: 1.5rem;
+  color: var(--alucard-purple);
+}
+
+.reader-content p {
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.reader-content a {
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+
+/* Dark theme links */
+[data-theme="dark"] .reader-content a,
+body:not([data-theme="light"]) .reader-content a {
+  color: var(--dracula-cyan);
+}
+
+[data-theme="dark"] .reader-content a:hover,
+body:not([data-theme="light"]) .reader-content a:hover {
+  border-bottom-color: var(--dracula-cyan);
+}
+
+/* Light theme links */
+[data-theme="light"] .reader-content a {
+  color: var(--alucard-cyan);
+}
+
+[data-theme="light"] .reader-content a:hover {
+  border-bottom-color: var(--alucard-cyan);
+}
+
+.reader-content blockquote {
+  padding-left: 1.5rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+}
+
+/* Dark theme blockquotes */
+[data-theme="dark"] .reader-content blockquote,
+body:not([data-theme="light"]) .reader-content blockquote {
+  border-left: 4px solid var(--dracula-cyan);
+  color: var(--dracula-comment);
+}
+
+/* Light theme blockquotes */
+[data-theme="light"] .reader-content blockquote {
+  border-left: 4px solid var(--alucard-cyan);
+  color: var(--alucard-comment);
+}
+
+.reader-content ul, .reader-content ol {
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+.reader-content li {
+  margin-bottom: 0.5rem;
 }

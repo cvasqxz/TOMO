@@ -1,11 +1,34 @@
 /* ===== TYPOGRAPHY ===== */
-body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, textarea {
-  font-family: var(--font-base) !important;
-  letter-spacing: 0.5px;
+
+/* Override Pico CSS font variables so Questrial is the default everywhere */
+:root {
+  --pico-font-family: 'Questrial', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: inherit !important;
+/* All reader prose uses Questrial */
+.reader-content {
+  font-family: var(--font-base) !important;
+}
+
+.reader-content p,
+.reader-content li,
+.reader-content blockquote,
+.reader-content td,
+.reader-content th,
+.reader-content a,
+.reader-content span,
+.reader-content strong,
+.reader-content em,
+.reader-content ul,
+.reader-content ol {
+  font-family: var(--font-base) !important;
+}
+
+/* Headings use Kode Mono */
+.reader-content h1, .reader-content h2, .reader-content h3,
+.reader-content h4, .reader-content h5, .reader-content h6 {
+  font-family: var(--font-mono) !important;
+  color: inherit;
   font-weight: 700;
   margin-top: 1.5rem;
 }

@@ -1,0 +1,456 @@
+/* ===== WELCOME SCREEN LAYOUT (Design 44 Style) ===== */
+.welcome-container {
+  font-family: var(--font-base);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: background 0.3s, color 0.3s, opacity 0.6s ease-out;
+  position: relative;
+}
+
+.welcome-container.transitioning {
+  pointer-events: none;
+}
+
+.welcome-title {
+  font-size: 7rem;
+  font-family: var(--font-mono) !important;
+  font-weight: 700;
+  letter-spacing: 0.8rem;
+  margin: 0 0 1.5rem 0;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.welcome-title.moving {
+  position: fixed;
+  top: 1.5rem;
+  left: 3rem;
+  font-size: 1.5rem;
+  letter-spacing: 0.2rem;
+  margin-bottom: 0;
+  z-index: 1000;
+}
+
+/* Animated gradient for title - Dark theme (Dracula) */
+[data-theme="dark"] .welcome-title,
+body:not([data-theme="light"]) .welcome-title {
+  background: linear-gradient(135deg, var(--dracula-cyan), var(--dracula-pink), var(--dracula-cyan));
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Animated gradient for title - Light theme (Alucard) */
+[data-theme="light"] .welcome-title {
+  background: linear-gradient(135deg, var(--alucard-cyan), var(--alucard-pink), var(--alucard-cyan));
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+.welcome-divider {
+  width: 120px;
+  height: 2px;
+  margin: 2rem auto;
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.welcome-divider.hiding {
+  opacity: 0;
+  transform: scale(0);
+}
+
+/* Divider gradient - Dark */
+[data-theme="dark"] .welcome-divider,
+body:not([data-theme="light"]) .welcome-divider {
+  background: linear-gradient(90deg, transparent, var(--dracula-cyan), var(--dracula-pink), transparent);
+}
+
+/* Divider gradient - Light */
+[data-theme="light"] .welcome-divider {
+  background: linear-gradient(90deg, transparent, var(--alucard-cyan), var(--alucard-pink), transparent);
+}
+
+.welcome-buttons {
+  display: flex;
+  gap: 4rem;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.welcome-buttons.hiding {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.welcome-btn {
+  background: transparent;
+  border: none;
+  padding: 0.5rem 0;
+  margin: 0;
+  font-family: var(--font-base) !important;
+  font-size: 0.9rem;
+  font-weight: 400;
+  cursor: pointer;
+  position: relative;
+  letter-spacing: 0.5rem;
+  text-transform: lowercase;
+  white-space: nowrap;
+}
+
+/* Welcome buttons - Dark */
+[data-theme="dark"] .welcome-btn,
+body:not([data-theme="light"]) .welcome-btn {
+  color: #f8f8f2 !important;
+}
+
+[data-theme="dark"] .welcome-btn::after,
+body:not([data-theme="light"]) .welcome-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #8be9fd, #ff79c6);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+
+/* Welcome buttons - Light */
+[data-theme="light"] .welcome-btn {
+  color: #1f1f1f !important;
+}
+
+[data-theme="light"] .welcome-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #036a96, #a3144d);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+
+.welcome-btn:hover::after {
+  transform: scaleX(1);
+}
+
+/* ===== FLOATING CONTROLS (Shown after file load) ===== */
+.floating-controls {
+  position: fixed;
+  top: 1rem;
+  right: 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 1000;
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.6s ease-out 0.4s, transform 0.6s ease-out 0.4s;
+}
+
+.floating-controls-hidden {
+  opacity: 0;
+  transform: translateX(100px);
+  pointer-events: none;
+}
+
+.floating-btn {
+  background: transparent;
+  border: 0px;
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  margin: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Floating buttons - Dark */
+[data-theme="dark"] .floating-btn,
+body:not([data-theme="light"]) .floating-btn {
+  border-color: var(--dracula-cyan);
+  color: var(--dracula-cyan);
+  background: rgba(40, 42, 54, 0.8);
+}
+
+[data-theme="dark"] .floating-btn:hover,
+body:not([data-theme="light"]) .floating-btn:hover {
+  border-color: var(--dracula-pink);
+  color: var(--dracula-pink);
+  background: rgba(40, 42, 54, 0.95);
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 0 20px rgba(255, 121, 198, 0.4);
+}
+
+/* Floating buttons - Light */
+[data-theme="light"] .floating-btn {
+  border-color: var(--alucard-cyan);
+  color: var(--alucard-cyan);
+  background: rgba(255, 251, 235, 0.8);
+}
+
+[data-theme="light"] .floating-btn:hover {
+  border-color: var(--alucard-pink);
+  color: var(--alucard-pink);
+  background: rgba(255, 251, 235, 0.95);
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 0 20px rgba(163, 20, 77, 0.4);
+}
+
+.floating-btn svg {
+  width: 70%;
+  height: 70%;
+  transition: transform 0.3s;
+}
+
+.floating-btn:hover svg {
+  transform: rotate(-5deg);
+}
+
+/* ===== READER VIEW LAYOUT (Design 44 Reader V3 Style) ===== */
+.reader-hidden {
+  display: none;
+}
+
+.reader-closing {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.reader-header {
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  transition: background 0.3s;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.reader-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Reader header - Dark */
+[data-theme="dark"] .reader-header,
+body:not([data-theme="light"]) .reader-header {
+  background: var(--dracula-bg);
+}
+
+/* Reader header - Light */
+[data-theme="light"] .reader-header {
+  background: var(--alucard-bg);
+}
+
+.reader-logo {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+/* Logo gradient - Dark */
+[data-theme="dark"] .reader-logo,
+body:not([data-theme="light"]) .reader-logo {
+  background: linear-gradient(135deg, var(--dracula-cyan), var(--dracula-pink), var(--dracula-cyan));
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+/* Logo gradient - Light */
+[data-theme="light"] .reader-logo {
+  background: linear-gradient(135deg, var(--alucard-cyan), var(--alucard-red), var(--alucard-cyan));
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+.reader-file-name {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* File name - Dark */
+[data-theme="dark"] .reader-file-name,
+body:not([data-theme="light"]) .reader-file-name {
+  color: var(--dracula-comment);
+}
+
+/* File name - Light */
+[data-theme="light"] .reader-file-name {
+  color: var(--alucard-comment);
+}
+
+/* Reader Container (Two columns) */
+.reader-container {
+  max-width: none;
+  margin: 0 auto;
+  padding: 0.5rem 15% 4rem;
+  display: grid;
+  grid-template-columns: 1fr 15%;
+  gap: 4rem;
+}
+
+.reader-content {
+  min-width: 0;
+}
+
+/* Navigation Map */
+.reader-nav-map {
+  padding-top: 2rem;
+  position: sticky;
+  top: 4rem;
+  max-height: calc(100vh - 5rem);
+  overflow-y: auto;
+  align-self: start;
+}
+
+.nav-map-title {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Nav map title - Dark */
+[data-theme="dark"] .nav-map-title,
+body:not([data-theme="light"]) .nav-map-title {
+  color: var(--dracula-comment);
+}
+
+/* Nav map title - Light */
+[data-theme="light"] .nav-map-title {
+  color: var(--alucard-comment);
+}
+
+.nav-map-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-map-item {
+  opacity: 75%;
+  margin-bottom: 0;
+  line-height: 1rem;
+  padding: 0.2rem;
+}
+
+.nav-map-item a {
+  font-family: var(--font-base);
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-bottom: none;
+  transition: color 0.3s;
+  display: block;
+}
+
+/* Nav map links - Dark */
+[data-theme="dark"] .nav-map-item a,
+body:not([data-theme="light"]) .nav-map-item a {
+  color: var(--dracula-comment);
+}
+
+[data-theme="dark"] .nav-map-item a:hover,
+body:not([data-theme="light"]) .nav-map-item a:hover {
+  color: var(--dracula-cyan);
+}
+
+[data-theme="dark"] .nav-map-item.h2 a,
+body:not([data-theme="light"]) .nav-map-item.h2 a {
+  font-weight: 600;
+  color: var(--dracula-fg);
+}
+
+[data-theme="dark"] .nav-map-item.h2 a:hover,
+body:not([data-theme="light"]) .nav-map-item.h2 a:hover {
+  color: var(--dracula-pink);
+}
+
+/* Nav map links - Light */
+[data-theme="light"] .nav-map-item a {
+  color: var(--alucard-comment);
+}
+
+[data-theme="light"] .nav-map-item a:hover {
+  color: var(--alucard-cyan);
+}
+
+[data-theme="light"] .nav-map-item.h2 a {
+  font-weight: 600;
+  color: var(--alucard-fg);
+}
+
+[data-theme="light"] .nav-map-item.h2 a:hover {
+  color: var(--alucard-pink);
+}
+
+.nav-map-item.h3 {
+  padding-left: 1rem;
+  position: relative;
+}
+
+.nav-map-item.h3::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  font-size: 0.75rem;
+}
+
+/* Nav map h3 arrow - Dark */
+[data-theme="dark"] .nav-map-item.h3::before,
+body:not([data-theme="light"]) .nav-map-item.h3::before {
+  color: var(--dracula-comment);
+}
+
+/* Nav map h3 arrow - Light */
+[data-theme="light"] .nav-map-item.h3::before {
+  color: var(--alucard-comment);
+}
+
+.nav-map-item a.active {
+  font-weight: 600;
+}
+
+/* Nav map active - Dark */
+[data-theme="dark"] .nav-map-item a.active,
+body:not([data-theme="light"]) .nav-map-item a.active {
+  color: var(--dracula-cyan);
+}
+
+/* Nav map active - Light */
+[data-theme="light"] .nav-map-item a.active {
+  color: var(--alucard-cyan);
+}

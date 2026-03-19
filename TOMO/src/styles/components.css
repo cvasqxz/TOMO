@@ -17,10 +17,4 @@ hr {
   margin: 2rem 0;
 }
 
-#theme-toggle {
-  cursor: pointer;
-  border-radius: 50%;
-  width: 42px;
-  height: 42px;
-  padding: 0;
-}
+/* #theme-toggle is now a floating circular button — styled in layouts.css */

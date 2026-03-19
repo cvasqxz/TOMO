@@ -1,13 +1,92 @@
 /**
- * File Loading and Markdown Rendering
- * Handles loading markdown files and rendering them to the page
+ * File Loading, Markdown Rendering, and File Watching
+ * Handles loading markdown files, rendering them, and auto-reloading on changes
  */
 
-import { readTextFile } from "@tauri-apps/plugin-fs";
+import { readTextFile, watch } from "@tauri-apps/plugin-fs";
 import { showToast } from "../ui/toast.js";
 import { isMarkdownFile, isValidFileSize, isNotEmpty, getFilename, getMaxFileSizeMB } from "./utils.js";
+import { getViewManager } from "../events.js";
 
 const contentArea = document.getElementById("content-area");
+
+// File watcher state
+let currentUnwatch = null;
+let currentPath = null;
+let currentParser = null;
+
+/**
+ * Stop watching the current file
+ */
+async function stopWatching() {
+  if (currentUnwatch) {
+    currentUnwatch();
+    currentUnwatch = null;
+  }
+  currentPath = null;
+}
+
+/**
+ * Start watching a file for changes
+ * @param {string} path - The file path to watch
+ * @param {Marked} markdownParser - The markdown parser instance
+ */
+async function startWatching(path, markdownParser) {
+  await stopWatching();
+
+  currentPath = path;
+  currentParser = markdownParser;
+
+  try {
+    currentUnwatch = await watch(
+      [path],
+      (event) => {
+        const kind = event.type;
+        // Reload on any modification event
+        if (kind === 'any' || (typeof kind === 'object' && 'modify' in kind)) {
+          reloadFile();
+        }
+      },
+      { delayMs: 500 }
+    );
+    console.log("Watching file:", path);
+  } catch (err) {
+    console.warn("File watch not available:", err);
+  }
+}
+
+/**
+ * Reload the currently watched file, preserving scroll position
+ */
+async function reloadFile() {
+  if (!currentPath || !currentParser) return;
+
+  try {
+    const markdownText = await readTextFile(currentPath);
+
+    if (!isNotEmpty(markdownText)) return;
+    if (!isValidFileSize(markdownText)) return;
+
+    // Preserve scroll position
+    const scrollY = window.scrollY;
+
+    const htmlContent = await currentParser.parse(markdownText);
+    contentArea.innerHTML = htmlContent;
+
+    // Regenerate navigation map
+    const viewManager = getViewManager();
+    if (viewManager) {
+      viewManager.generateNavigationMap();
+    }
+
+    // Restore scroll position
+    window.scrollTo(0, scrollY);
+
+    showToast('File reloaded', 'success');
+  } catch (err) {
+    console.error("Reload error:", err);
+  }
+}
 
 /**
  * Load and render a markdown file
@@ -49,14 +128,28 @@ export async function loadMarkdown(path, markdownParser) {
     const htmlContent = await markdownParser.parse(markdownText);
     contentArea.innerHTML = htmlContent;
 
-    // 6. Update title and scroll
+    // 6. Update title and show reader view
     const fileName = getFilename(path);
     document.title = `TOMO - ${fileName}`;
-    window.scrollTo(0, 0);
 
+    // Switch to reader view
+    const viewManager = getViewManager();
+    if (viewManager) {
+      viewManager.showReaderView(fileName);
+    }
+
+    // 7. Start watching for changes
+    await startWatching(path, markdownParser);
+
+    window.scrollTo(0, 0);
     showToast('File loaded successfully', 'success');
   } catch (err) {
     console.error("TOMO Error:", err);
     showToast(`Error loading file: ${err.message}`, 'error');
   }
 }
+
+/**
+ * Stop watching the current file (called when closing)
+ */
+export { stopWatching };

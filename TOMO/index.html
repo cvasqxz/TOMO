@@ -9,23 +9,66 @@
   <link href="https://fonts.googleapis.com/css2?family=Questrial&family=Kode+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <main class="container">
-    <header>
-      <div style="display: flex; align-items: center; justify-content: space-between; gap: 2rem;">
-        <hgroup>
-          <h1># TOMO</h1>
-          <p>Markdown Viewer</p>
-        </hgroup>
-        <div style="display: flex; gap: 1rem; align-items: center;">
-          <img src="src/assets/open_file.svg" width="42" height="42" id="open-file" style="cursor: pointer;"/>
-          <img src="src/assets/theme_toggle.svg" width="42" height="42" id="theme-toggle" style="cursor: pointer;"/>
-        </div>
+  <!-- Welcome Screen (shown when no file is loaded) -->
+  <div id="welcome-screen" class="welcome-container">
+    <h1 class="welcome-title" id="welcome-title">#TOMO</h1>
+    <div class="welcome-divider" id="welcome-divider"></div>
+    <div class="welcome-buttons" id="welcome-buttons">
+      <a id="open-file" class="welcome-btn">Open File</a>
+      <a id="theme-toggle" class="welcome-btn">Toggle Theme</a>
+    </div>
+  </div>
+
+  <!-- Floating controls (shown when file is loaded) -->
+  <div id="floating-controls" class="floating-controls floating-controls-hidden">
+    <button id="floating-theme-toggle" class="floating-btn" title="Toggle Theme">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </button>
+    <button id="floating-open-file" class="floating-btn" title="Open File">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
+        <polyline points="13 2 13 9 20 9"/>
+      </svg>
+    </button>
+    <button id="floating-close-file" class="floating-btn" title="Close File">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Reader View (shown when file is loaded) -->
+  <div id="reader-view" class="reader-hidden">
+    <header class="reader-header">
+      <div class="reader-header-left">
+        <div class="reader-logo">TOMO</div>
+        <span id="file-name" class="reader-file-name"></span>
       </div>
     </header>
 
-    <article id="content-area">
-      <p><em>Select a Markdown file or drag it here to read it.</em></p>
-    </article>
+    <div class="reader-container">
+      <main id="content-area" class="reader-content">
+        <!-- Markdown content will be rendered here -->
+      </main>
+
+      <aside id="nav-map" class="reader-nav-map">
+        <div class="nav-map-title">Navigation</div>
+        <ul class="nav-map-list" id="nav-map-list">
+          <!-- Navigation will be generated dynamically -->
+        </ul>
+      </aside>
+    </div>
 
     <div id="search-container" class="search-bar-hidden">
       <div class="search-bar-content">
@@ -38,7 +81,7 @@
         </div>
       </div>
     </div>
-  </main>
+  </div>
 
   <!-- Vite will process this file and resolve all dependencies -->
   <script type="module" src="/src/main.js"></script>
