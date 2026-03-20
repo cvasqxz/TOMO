@@ -31,9 +31,13 @@ async function initializeApp() {
       }
     });
 
+    // Reveal UI once styles and modules are loaded
+    document.body.classList.add("ready");
+
     console.log("TOMO initialized successfully");
   } catch (error) {
     console.error("Failed to initialize TOMO:", error);
+    document.body.classList.add("ready");
   }
 }
 

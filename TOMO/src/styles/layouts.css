@@ -170,36 +170,37 @@
   backdrop-filter: blur(10px);
   position: relative;
   box-sizing: border-box;
+  outline: none;
 }
 
 /* Floating buttons - Dark */
 [data-theme="dark"] .floating-btn {
   border-color: var(--dracula-cyan);
   color: var(--dracula-cyan);
-  background: rgba(40, 42, 54, 0.8);
+  background: rgba(var(--dracula-bg-rgb), 0.8);
 }
 
 [data-theme="dark"] .floating-btn:hover {
   border-color: var(--dracula-pink);
   color: var(--dracula-pink);
-  background: rgba(40, 42, 54, 0.95);
+  background: rgba(var(--dracula-bg-rgb), 0.95);
   transform: scale(1.1) rotate(5deg);
-  box-shadow: 0 0 20px rgba(255, 121, 198, 0.4);
+  box-shadow: 0 0 20px rgba(var(--dracula-pink-rgb), 0.4);
 }
 
 /* Floating buttons - Light */
 [data-theme="light"] .floating-btn {
   border-color: var(--alucard-cyan);
   color: var(--alucard-cyan);
-  background: rgba(255, 251, 235, 0.8);
+  background: rgba(var(--alucard-bg-rgb), 0.8);
 }
 
 [data-theme="light"] .floating-btn:hover {
   border-color: var(--alucard-pink);
   color: var(--alucard-pink);
-  background: rgba(255, 251, 235, 0.95);
+  background: rgba(var(--alucard-bg-rgb), 0.95);
   transform: scale(1.1) rotate(5deg);
-  box-shadow: 0 0 20px rgba(163, 20, 77, 0.4);
+  box-shadow: 0 0 20px rgba(var(--alucard-pink-rgb), 0.4);
 }
 
 .floating-btn svg {
@@ -294,7 +295,7 @@
   padding-top: 2rem;
   position: sticky;
   top: 4rem;
-  max-height: calc(100vh - 5rem);
+  max-height: 70vh;
   overflow-y: auto;
   align-self: start;
 }

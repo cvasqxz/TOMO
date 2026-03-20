@@ -2,8 +2,8 @@
 [data-theme="light"] {
   background-color: var(--alucard-bg);
   color: var(--alucard-fg);
-  --pico-table-border-color: #d9cfc5;
-  --pico-table-row-stripped-background-color: #f5f3f0;
+  --pico-table-border-color: var(--alucard-border);
+  --pico-table-row-stripped-background-color: var(--alucard-table-stripe);
 }
 
 [data-theme="light"] header {
@@ -16,8 +16,8 @@
 }
 
 [data-theme="light"] pre {
-  background: #f5ede1 !important;
-  border: 1px solid #d9cfc5;
+  background: var(--alucard-code-bg) !important;
+  border: 1px solid var(--alucard-border);
 }
 
 [data-theme="light"] pre code.hljs {
@@ -25,7 +25,7 @@
 }
 
 [data-theme="light"] code:not(.hljs) {
-  background: #e8ddd0;
+  background: var(--alucard-code-inline-bg);
   color: var(--alucard-red);
 }
 
@@ -80,7 +80,7 @@
 [data-theme="dark"] {
   background-color: var(--dracula-bg);
   color: var(--dracula-fg);
-  --pico-table-border-color: var(--dracula-selection);
+  --pico-table-border-color: var(--dracula-border);
   --pico-table-row-stripped-background-color: var(--dracula-selection);
 }
 
@@ -94,7 +94,7 @@
 }
 
 [data-theme="dark"] pre {
-  background: #1e1f2b !important;
+  background: var(--dracula-code-bg) !important;
   border: 1px solid var(--dracula-comment);
 }
 
@@ -103,7 +103,7 @@
 }
 
 [data-theme="dark"] code:not(.hljs) {
-  background: #44475a;
+  background: var(--dracula-selection);
   color: var(--dracula-pink);
 }
 

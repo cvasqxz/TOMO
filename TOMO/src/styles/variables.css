@@ -8,6 +8,7 @@
 
   /* Dracula Classic (Dark) - Official Spec */
   --dracula-bg: #282a36;
+  --dracula-bg-rgb: 40, 42, 54;
   --dracula-fg: #f8f8f2;
   --dracula-current-line: #6272a4;
   --dracula-selection: #44475a;
@@ -19,9 +20,13 @@
   --dracula-cyan: #8be9fd;
   --dracula-purple: #bd93f9;
   --dracula-pink: #ff79c6;
+  --dracula-pink-rgb: 255, 121, 198;
+  --dracula-code-bg: #1e1f2b;
+  --dracula-border: var(--dracula-selection);
 
   /* Alucard Classic (Light) - Official Spec */
   --alucard-bg: #fffbeb;
+  --alucard-bg-rgb: 255, 251, 235;
   --alucard-fg: #1f1f1f;
   --alucard-current-line: #6c664b;
   --alucard-selection: #cfcfde;
@@ -33,6 +38,11 @@
   --alucard-cyan: #036a96;
   --alucard-purple: #644ac9;
   --alucard-pink: #a3144d;
+  --alucard-pink-rgb: 163, 20, 77;
+  --alucard-border: #d9cfc5;
+  --alucard-code-bg: #f5ede1;
+  --alucard-code-inline-bg: #e8ddd0;
+  --alucard-table-stripe: #f5f3f0;
 
   font-family: var(--font-base);
   transition: var(--transition);

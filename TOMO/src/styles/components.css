@@ -3,6 +3,12 @@ button, input {
   font-family: var(--font-base) !important;
 }
 
+button:focus,
+button:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 img {
   border-radius: 8px;
   max-width: 100%;
@@ -13,8 +19,15 @@ img {
 
 hr {
   border: 0;
-  border-top: 1px solid rgba(128, 128, 128, 0.2);
   margin: 2rem 0;
+}
+
+[data-theme="dark"] hr {
+  border-top: 1px solid var(--dracula-selection);
+}
+
+[data-theme="light"] hr {
+  border-top: 1px solid var(--alucard-border);
 }
 
 /* #theme-toggle is now a floating circular button — styled in layouts.css */

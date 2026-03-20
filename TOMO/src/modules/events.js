@@ -6,7 +6,7 @@
 import { open } from "@tauri-apps/plugin-dialog";
 import { getCurrentWindow } from "@tauri-apps/api/window";
 import { loadMarkdown } from "./core/file-loader.js";
-import { initSearchListeners } from "./ui/search.js";
+import { initSearchListeners, toggleSearchBar } from "./ui/search.js";
 import { toggleTheme } from "./ui/theme.js";
 import { showToast } from "./ui/toast.js";
 import { isMarkdownFile } from "./core/utils.js";
@@ -39,6 +39,7 @@ export function initializeEventListeners(markdownParser) {
   const floatingThemeToggle = document.getElementById("floating-theme-toggle");
   const floatingOpenFile = document.getElementById("floating-open-file");
   const floatingCloseFile = document.getElementById("floating-close-file");
+  const floatingSearch = document.getElementById("floating-search");
 
   // Initialize view manager
   viewManager = getViewManager();
@@ -84,6 +85,14 @@ export function initializeEventListeners(markdownParser) {
   // Floating open file
   if (floatingOpenFile) {
     floatingOpenFile.addEventListener("click", openFileDialog);
+  }
+
+  // Floating search
+  if (floatingSearch) {
+    floatingSearch.addEventListener("click", () => {
+      const searchContainer = document.getElementById("search-container");
+      toggleSearchBar(!searchContainer.classList.contains("show"));
+    });
   }
 
   // Floating close file
