@@ -1,11 +1,11 @@
 /* ===== TYPOGRAPHY ===== */
 
-/* Override Pico CSS font variables so Questrial is the default everywhere */
+/* Override Pico CSS font variables so Sora is the default everywhere */
 :root {
-  --pico-font-family: 'Questrial', sans-serif;
+  --pico-font-family: 'Sora', sans-serif;
 }
 
-/* All reader prose uses Questrial */
+/* All reader prose uses Sora */
 .reader-content,
 .reader-content p,
 .reader-content li,
@@ -17,14 +17,17 @@
 .reader-content strong,
 .reader-content em,
 .reader-content ul,
+.reader-content h1, .reader-content h2, .reader-content h3,
+.reader-content h4, .reader-content h5, .reader-content h6,
 .reader-content ol {
   font-family: var(--font-base) !important;
 }
 
-/* Headings use Kode Mono */
-.reader-content h1, .reader-content h2, .reader-content h3,
-.reader-content h4, .reader-content h5, .reader-content h6 {
+/* Code blocks use monospace font */
+.reader-content code,
+.reader-content pre,
+.reader-content pre code,
+.reader-content pre span,
+.reader-content code span {
   font-family: var(--font-mono) !important;
-  color: inherit;
-  font-weight: 700;
 }
