@@ -280,10 +280,23 @@
 .reader-container {
   max-width: none;
   margin: 0 auto;
-  padding: 0.5rem 15% 4rem;
+  padding: 0.5rem 8% 4rem;
   display: grid;
   grid-template-columns: 1fr 15%;
   gap: 4rem;
+}
+
+/* Small screens: reduce padding and hide nav map */
+@media (max-width: 768px) {
+  .reader-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    grid-template-columns: 1fr;
+  }
+
+  .reader-nav-map {
+    display: none;
+  }
 }
 
 .reader-content {

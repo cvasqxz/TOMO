@@ -12,5 +12,5 @@ tr, td, th {
 }
 
 tbody tr:nth-child(even) {
-  background-color: var(--pico-table-row-stripped-background-color) !important;
+  background-color: transparent !important;
 }
