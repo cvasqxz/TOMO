@@ -1,10 +1,5 @@
 /* ===== TYPOGRAPHY ===== */
 
-/* Override Pico CSS font variables so Sora is the default everywhere */
-:root {
-  --pico-font-family: 'Sora', sans-serif;
-}
-
 /* All reader prose uses Sora */
 .reader-content,
 .reader-content p,
@@ -17,10 +12,15 @@
 .reader-content strong,
 .reader-content em,
 .reader-content ul,
-.reader-content h1, .reader-content h2, .reader-content h3,
-.reader-content h4, .reader-content h5, .reader-content h6,
 .reader-content ol {
   font-family: var(--font-base) !important;
+  font-weight: 300 !important;
+}
+
+.reader-content h1, .reader-content h2, .reader-content h3,
+.reader-content h4, .reader-content h5, .reader-content h6 {
+  font-family: var(--font-base) !important;
+  font-weight: 600 !important;
 }
 
 /* Code blocks use monospace font */

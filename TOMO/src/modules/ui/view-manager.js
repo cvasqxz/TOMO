@@ -149,7 +149,20 @@ export class ViewManager {
    */
   handleNavClick(e, targetElement) {
     e.preventDefault();
-    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // Calculate offset for sticky header
+    const header = document.querySelector('.reader-header');
+    const headerHeight = header ? header.offsetHeight : 0;
+    const offset = 16; // Additional padding in pixels
+
+    // Get target position and scroll with offset
+    const elementPosition = targetElement.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerHeight - offset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
 
     // Update active link
     document.querySelectorAll('.nav-map-item a').forEach(link => {

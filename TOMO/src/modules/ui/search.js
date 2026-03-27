@@ -7,13 +7,14 @@ import Mark from "mark.js";
 import { showToast } from "./toast.js";
 
 // DOM Selectors
+import { getViewManager } from "../events.js";
+
 const searchContainer = document.getElementById("search-container");
 const searchInput = document.getElementById("search-input");
 const searchCount = document.getElementById("search-count");
 const searchPrev = document.getElementById("search-prev");
 const searchNext = document.getElementById("search-next");
 const searchClose = document.getElementById("search-close");
-const contentArea = document.getElementById("content-area");
 
 // Search state
 let markInstance = null;
@@ -25,6 +26,13 @@ let totalMatches = 0;
  * @param {boolean} show - Whether to show the search bar
  */
 export function toggleSearchBar(show = true) {
+  const viewManager = getViewManager();
+
+  // Only allow opening search if reader view is active
+  if (show && !viewManager.isReaderViewActive()) {
+    return;
+  }
+
   if (show) {
     searchContainer.classList.add("show");
     searchInput.focus();

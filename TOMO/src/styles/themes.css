@@ -2,8 +2,6 @@
 [data-theme="light"] {
   background-color: var(--alucard-bg);
   color: var(--alucard-fg);
-  --pico-table-border-color: var(--alucard-border);
-  --pico-table-row-stripped-background-color: var(--alucard-table-stripe);
 }
 
 [data-theme="light"] header {
@@ -80,8 +78,6 @@
 [data-theme="dark"] {
   background-color: var(--dracula-bg);
   color: var(--dracula-fg);
-  --pico-table-border-color: var(--dracula-border);
-  --pico-table-row-stripped-background-color: var(--dracula-selection);
 }
 
 [data-theme="dark"] header {

@@ -3,7 +3,7 @@
   /* Typography */
   --font-base: 'Sora', sans-serif;
   --font-mono: 'Kode Mono', monospace;
-  --pico-font-size: 16px;
+  --font-size: 16px;
   --transition: background-color 0.2s ease, color 0.2s ease;
 
   /* Dracula Classic (Dark) - Official Spec */

@@ -10,7 +10,6 @@
     "tauri": "tauri"
   },
   "dependencies": {
-    "@picocss/pico": "^2.1.1",
     "@tauri-apps/api": "^2.0.0",
     "@tauri-apps/plugin-cli": "~2",
     "@tauri-apps/plugin-dialog": "~2",

@@ -1,6 +1,5 @@
 /* ===== MAIN STYLESHEET INDEX ===== */
 /* Import external frameworks */
-@import "@picocss/pico/css/pico.min.css";
 @import "highlight.js/styles/github.css";
 
 /* Import component styles */
