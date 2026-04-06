@@ -7,9 +7,13 @@ import { readTextFile, watch } from "@tauri-apps/plugin-fs";
 import { showToast } from "../ui/toast.js";
 import { isMarkdownFile, isValidFileSize, isNotEmpty, getFilename, getMaxFileSizeMB } from "./utils.js";
 import { getViewManager } from "../events.js";
-import { createFastParser, setupLazyHighlighting } from "./markdown.js";
+import { createFastParser, setupLazyHighlighting, interceptLinks } from "./markdown.js";
+import { restoreSavedTheme } from "../ui/theme.js";
 
 const contentArea = document.getElementById("content-area");
+
+// Open all links in the system browser
+interceptLinks(contentArea);
 
 // File watcher state
 let currentUnwatch = null;
@@ -275,9 +279,10 @@ export async function loadMarkdown(path, markdownParser) {
       await renderImmediate(markdownText, markdownParser);
     }
 
-    // 6. Update title and show reader view
+    // 6. Restore saved theme and show reader view
+    restoreSavedTheme();
+
     const fileName = getFilename(path);
-    document.title = `TOMO - ${fileName}`;
 
     const viewManager = getViewManager();
     if (viewManager) {

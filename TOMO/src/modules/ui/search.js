@@ -15,6 +15,7 @@ const searchCount = document.getElementById("search-count");
 const searchPrev = document.getElementById("search-prev");
 const searchNext = document.getElementById("search-next");
 const searchClose = document.getElementById("search-close");
+const contentArea = document.getElementById("content-area");
 
 // Search state
 let markInstance = null;

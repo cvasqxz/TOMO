@@ -7,7 +7,7 @@ import { open } from "@tauri-apps/plugin-dialog";
 import { getCurrentWindow } from "@tauri-apps/api/window";
 import { loadMarkdown } from "./core/file-loader.js";
 import { initSearchListeners, toggleSearchBar } from "./ui/search.js";
-import { toggleTheme } from "./ui/theme.js";
+import { setMode, setPalette, getCurrentMode, getCurrentPalette } from "./ui/theme.js";
 import { showToast } from "./ui/toast.js";
 import { isMarkdownFile } from "./core/utils.js";
 import { ViewManager } from "./ui/view-manager.js";
@@ -17,7 +17,7 @@ let viewManager = null;
 
 /**
  * Get the view manager instance
- * @returns {ViewManager} - The view manager instance
+ * @returns {ViewManager}
  */
 export function getViewManager() {
   if (!viewManager) {
@@ -33,7 +33,6 @@ export function getViewManager() {
 export function initializeEventListeners(markdownParser) {
   const appWindow = getCurrentWindow();
   const openFileBtn = document.getElementById("open-file");
-  const themeToggle = document.getElementById("theme-toggle");
 
   // Floating controls
   const floatingThemeToggle = document.getElementById("floating-theme-toggle");
@@ -41,18 +40,14 @@ export function initializeEventListeners(markdownParser) {
   const floatingCloseFile = document.getElementById("floating-close-file");
   const floatingSearch = document.getElementById("floating-search");
 
+  // Palette menu
+  const paletteMenu = document.getElementById("palette-menu");
+
   // Initialize view manager
   viewManager = getViewManager();
 
   // Initialize search listeners
   initSearchListeners();
-
-  // Theme toggle (welcome screen)
-  if (themeToggle) {
-    themeToggle.addEventListener("click", () => {
-      toggleTheme();
-    });
-  }
 
   // Function to open file dialog
   const openFileDialog = async () => {
@@ -75,10 +70,37 @@ export function initializeEventListeners(markdownParser) {
     openFileBtn.addEventListener("click", openFileDialog);
   }
 
-  // Floating theme toggle
-  if (floatingThemeToggle) {
-    floatingThemeToggle.addEventListener("click", () => {
-      toggleTheme();
+  // Floating theme button — toggle palette menu
+  if (floatingThemeToggle && paletteMenu) {
+    floatingThemeToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      paletteMenu.classList.toggle("open");
+      if (paletteMenu.classList.contains("open")) {
+        updatePaletteMenuState();
+      }
+    });
+
+    // Mode buttons
+    paletteMenu.querySelectorAll(".mode-btn").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        setMode(btn.dataset.mode);
+        updatePaletteMenuState();
+      });
+    });
+
+    // Palette options
+    paletteMenu.querySelectorAll(".palette-option").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        setPalette(btn.dataset.palette);
+        updatePaletteMenuState();
+      });
+    });
+
+    // Close menu on outside click
+    document.addEventListener("click", () => {
+      paletteMenu.classList.remove("open");
     });
   }
 
@@ -112,5 +134,23 @@ export function initializeEventListeners(markdownParser) {
         showToast('Please drag a valid .md or .markdown file', 'warning');
       }
     }
+  });
+}
+
+/**
+ * Update palette menu active states to reflect current selection
+ */
+function updatePaletteMenuState() {
+  const mode = getCurrentMode();
+  const palette = getCurrentPalette();
+  const paletteMenu = document.getElementById("palette-menu");
+  if (!paletteMenu) return;
+
+  paletteMenu.querySelectorAll(".mode-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.mode === mode);
+  });
+
+  paletteMenu.querySelectorAll(".palette-option").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.palette === palette);
   });
 }

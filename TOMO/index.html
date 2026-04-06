@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TOMO - Markdown Reader</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Kode+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <style>
+<style>
     body { opacity: 0; }
     body.ready { opacity: 1; transition: opacity 0.15s ease; }
   </style>
@@ -16,28 +13,122 @@
   <!-- Welcome Screen (shown when no file is loaded) -->
   <div id="welcome-screen" class="welcome-container">
     <h1 class="welcome-title gradient-text" id="welcome-title">#TOMO</h1>
-    <div class="welcome-divider" id="welcome-divider"></div>
+
     <div class="welcome-buttons" id="welcome-buttons">
       <button id="open-file" class="welcome-btn">Open File</button>
-      <button id="theme-toggle" class="welcome-btn">Toggle Theme</button>
     </div>
   </div>
 
   <!-- Floating controls (shown when file is loaded) -->
   <div id="floating-controls" class="floating-controls floating-controls-hidden">
-    <button id="floating-theme-toggle" class="floating-btn" title="Toggle Theme">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="12" cy="12" r="5"/>
-        <line x1="12" y1="1" x2="12" y2="3"/>
-        <line x1="12" y1="21" x2="12" y2="23"/>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-        <line x1="1" y1="12" x2="3" y2="12"/>
-        <line x1="21" y1="12" x2="23" y2="12"/>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-      </svg>
-    </button>
+    <!-- Theme / Palette button with dropdown -->
+    <div class="theme-btn-wrapper">
+      <button id="floating-theme-toggle" class="floating-btn" title="Theme & Palette">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+
+      <div id="palette-menu" class="palette-menu">
+        <div class="palette-menu-section">Mode</div>
+        <div class="palette-menu-mode">
+          <button class="mode-btn" data-mode="dark">Dark</button>
+          <button class="mode-btn" data-mode="light">Light</button>
+        </div>
+
+        <div class="palette-menu-section">Palette</div>
+
+        <button class="palette-option" data-palette="misty-slate">
+          <span class="palette-dots">
+            <span class="palette-dot" style="background:#252b35"></span>
+            <span class="palette-dot" style="background:#a8d8f0"></span>
+            <span class="palette-dot" style="background:#f0b8d8"></span>
+          </span>
+          Misty Slate
+        </button>
+        <button class="palette-option" data-palette="rose-dusk">
+          <span class="palette-dots">
+            <span class="palette-dot" style="background:#2e2330"></span>
+            <span class="palette-dot" style="background:#b0d8f0"></span>
+            <span class="palette-dot" style="background:#f5b8d0"></span>
+          </span>
+          Rose Dusk
+        </button>
+        <button class="palette-option" data-palette="moss-cream">
+          <span class="palette-dots">
+            <span class="palette-dot" style="background:#222c25"></span>
+            <span class="palette-dot" style="background:#a8e0d8"></span>
+            <span class="palette-dot" style="background:#e8b8c8"></span>
+          </span>
+          Moss & Cream
+        </button>
+        <button class="palette-option" data-palette="indigo-mist">
+          <span class="palette-dots">
+            <span class="palette-dot" style="background:#21233a"></span>
+            <span class="palette-dot" style="background:#a0d0f8"></span>
+            <span class="palette-dot" style="background:#f0a8d0"></span>
+          </span>
+          Indigo Mist
+        </button>
+        <button class="palette-option" data-palette="sand-amber">
+          <span class="palette-dots">
+            <span class="palette-dot" style="background:#2c2818"></span>
+            <span class="palette-dot" style="background:#a8d8e8"></span>
+            <span class="palette-dot" style="background:#f0b8c8"></span>
+          </span>
+          Sand & Amber
+        </button>
+        <button class="palette-option" data-palette="ocean-foam">
+          <span class="palette-dots">
+            <span class="palette-dot" style="background:#182830"></span>
+            <span class="palette-dot" style="background:#a0d8f0"></span>
+            <span class="palette-dot" style="background:#f0b0d0"></span>
+          </span>
+          Ocean Foam
+        </button>
+        <button class="palette-option" data-palette="lavender-dusk">
+          <span class="palette-dots">
+            <span class="palette-dot" style="background:#28223a"></span>
+            <span class="palette-dot" style="background:#a8c8f0"></span>
+            <span class="palette-dot" style="background:#f0b0e0"></span>
+          </span>
+          Lavender Dusk
+        </button>
+        <button class="palette-option" data-palette="cherry-blossom">
+          <span class="palette-dots">
+            <span class="palette-dot" style="background:#321a20"></span>
+            <span class="palette-dot" style="background:#a8d8f0"></span>
+            <span class="palette-dot" style="background:#f8a8c8"></span>
+          </span>
+          Cherry Blossom
+        </button>
+        <button class="palette-option" data-palette="nordic-fog">
+          <span class="palette-dots">
+            <span class="palette-dot" style="background:#1e2630"></span>
+            <span class="palette-dot" style="background:#a0d0e8"></span>
+            <span class="palette-dot" style="background:#e8a8c0"></span>
+          </span>
+          Nordic Fog
+        </button>
+        <button class="palette-option" data-palette="citrus-haze">
+          <span class="palette-dots">
+            <span class="palette-dot" style="background:#2a2a18"></span>
+            <span class="palette-dot" style="background:#a0e0e0"></span>
+            <span class="palette-dot" style="background:#f0b0c0"></span>
+          </span>
+          Citrus Haze
+        </button>
+      </div>
+    </div>
+
     <button id="floating-open-file" class="floating-btn" title="Open File">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>

@@ -5,19 +5,16 @@ html, body {
   transition: var(--transition);
 }
 
-/* Dark Theme (Default/Dracula) */
-[data-theme="dark"] {
-  background-color: var(--dracula-bg);
-  color: var(--dracula-fg);
+[data-mode="dark"] {
+  background-color: var(--bg);
+  color: var(--fg);
 }
 
-/* Light Theme (Alucard) */
-[data-theme="light"] {
-  background-color: var(--alucard-bg);
-  color: var(--alucard-fg);
+[data-mode="light"] {
+  background-color: var(--bg);
+  color: var(--fg);
 }
 
-/* Reset Pico CSS styles that interfere with custom design */
 button {
   font-weight: inherit;
 }
@@ -32,7 +29,6 @@ button {
   box-shadow: none !important;
 }
 
-/* Reader content area - remove Pico styles */
 #content-area {
   background: transparent !important;
   border: none !important;
@@ -53,42 +49,22 @@ button {
   padding-bottom: 0.5rem;
 }
 
-/* Dark theme markdown headings */
-[data-theme="dark"] .reader-content h1 {
-  background: linear-gradient(135deg, var(--dracula-cyan), var(--dracula-pink));
+.reader-content h1 {
+  background: linear-gradient(135deg, var(--cyan), var(--pink));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  border-bottom: 3px solid var(--dracula-selection);
+  border-bottom: 3px solid var(--selection);
 }
 
-[data-theme="dark"] .reader-content h2 {
+.reader-content h2 {
   font-size: 2rem;
-  color: var(--dracula-pink);
+  color: var(--pink);
 }
 
-[data-theme="dark"] .reader-content h3 {
+.reader-content h3 {
   font-size: 1.5rem;
-  color: var(--dracula-purple);
-}
-
-/* Light theme markdown headings */
-[data-theme="light"] .reader-content h1 {
-  background: linear-gradient(135deg, var(--alucard-cyan), var(--alucard-red));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  border-bottom: 3px solid var(--alucard-selection);
-}
-
-[data-theme="light"] .reader-content h2 {
-  font-size: 2rem;
-  color: var(--alucard-pink);
-}
-
-[data-theme="light"] .reader-content h3 {
-  font-size: 1.5rem;
-  color: var(--alucard-purple);
+  color: var(--purple);
 }
 
 .reader-content p {
@@ -100,42 +76,19 @@ button {
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: border-color 0.3s;
+  color: var(--cyan);
 }
 
-/* Dark theme links */
-[data-theme="dark"] .reader-content a {
-  color: var(--dracula-cyan);
-}
-
-[data-theme="dark"] .reader-content a:hover {
-  border-bottom-color: var(--dracula-cyan);
-}
-
-/* Light theme links */
-[data-theme="light"] .reader-content a {
-  color: var(--alucard-cyan);
-}
-
-[data-theme="light"] .reader-content a:hover {
-  border-bottom-color: var(--alucard-cyan);
+.reader-content a:hover {
+  border-bottom-color: var(--cyan);
 }
 
 .reader-content blockquote {
   padding-left: 1.5rem;
   margin: 1.5rem 0;
   font-style: italic;
-}
-
-/* Dark theme blockquotes */
-[data-theme="dark"] .reader-content blockquote {
-  border-left: 4px solid var(--dracula-cyan);
-  color: var(--dracula-comment);
-}
-
-/* Light theme blockquotes */
-[data-theme="light"] .reader-content blockquote {
-  border-left: 4px solid var(--alucard-cyan);
-  color: var(--alucard-comment);
+  border-left: 4px solid var(--cyan);
+  color: var(--comment);
 }
 
 .reader-content ul, .reader-content ol {

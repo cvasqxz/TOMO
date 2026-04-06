@@ -5,45 +5,350 @@
   --font-mono: 'Kode Mono', monospace;
   --font-size: 16px;
   --transition: background-color 0.2s ease, color 0.2s ease;
-
-  /* Dracula Classic (Dark) - Official Spec */
-  --dracula-bg: #282a36;
-  --dracula-bg-rgb: 40, 42, 54;
-  --dracula-fg: #f8f8f2;
-  --dracula-current-line: #6272a4;
-  --dracula-selection: #44475a;
-  --dracula-comment: #6272a4;
-  --dracula-red: #ff5555;
-  --dracula-orange: #ffb86c;
-  --dracula-yellow: #f1fa8c;
-  --dracula-green: #50fa7b;
-  --dracula-cyan: #8be9fd;
-  --dracula-purple: #bd93f9;
-  --dracula-pink: #ff79c6;
-  --dracula-pink-rgb: 255, 121, 198;
-  --dracula-code-bg: #1e1f2b;
-  --dracula-border: var(--dracula-selection);
-
-  /* Alucard Classic (Light) - Official Spec */
-  --alucard-bg: #fffbeb;
-  --alucard-bg-rgb: 255, 251, 235;
-  --alucard-fg: #1f1f1f;
-  --alucard-current-line: #6c664b;
-  --alucard-selection: #cfcfde;
-  --alucard-comment: #6c664b;
-  --alucard-red: #cb3a2a;
-  --alucard-orange: #a34d14;
-  --alucard-yellow: #846e15;
-  --alucard-green: #14710a;
-  --alucard-cyan: #036a96;
-  --alucard-purple: #644ac9;
-  --alucard-pink: #a3144d;
-  --alucard-pink-rgb: 163, 20, 77;
-  --alucard-border: #d9cfc5;
-  --alucard-code-bg: #f5ede1;
-  --alucard-code-inline-bg: #e8ddd0;
-  --alucard-table-stripe: #f5f3f0;
+  --shadow: 0 8px 32px rgba(0,0,0,0.3);
 
   font-family: var(--font-base);
   transition: var(--transition);
+}
+
+/* ===== PALETTE DEFINITIONS ===== */
+
+/* 01 — Misty Slate */
+[data-palette="misty-slate"][data-mode="dark"] {
+  --bg:        #252b35;
+  --bg-rgb:    37, 43, 53;
+  --code-bg:   #1c2028;
+  --selection: #3a4354;
+  --comment:   #7a8aaa;
+  --fg:        #e8eaf0;
+  --red:       #f4a8a8;
+  --orange:    #f5c89a;
+  --yellow:    #f5e8a0;
+  --green:     #a8e6b8;
+  --cyan:      #a8d8f0;
+  --purple:    #c8b8f0;
+  --pink:      #f0b8d8;
+  --pink-rgb:  240, 184, 216;
+}
+[data-palette="misty-slate"][data-mode="light"] {
+  --bg:        #f0f4fa;
+  --bg-rgb:    240, 244, 250;
+  --code-bg:   #e2e8f4;
+  --selection: #c8d2e8;
+  --comment:   #6878a0;
+  --fg:        #1e2430;
+  --red:       #b84040;
+  --orange:    #a06020;
+  --yellow:    #887020;
+  --green:     #286840;
+  --cyan:      #206888;
+  --purple:    #5040a0;
+  --pink:      #904060;
+  --pink-rgb:  144, 64, 96;
+}
+
+/* 02 — Rose Dusk */
+[data-palette="rose-dusk"][data-mode="dark"] {
+  --bg:        #2e2330;
+  --bg-rgb:    46, 35, 48;
+  --code-bg:   #231a25;
+  --selection: #463246;
+  --comment:   #906090;
+  --fg:        #f0e8f2;
+  --red:       #f5aaaa;
+  --orange:    #f5c8a0;
+  --yellow:    #f0e0a0;
+  --green:     #b0e8c0;
+  --cyan:      #b0d8f0;
+  --purple:    #d0b8f5;
+  --pink:      #f5b8d0;
+  --pink-rgb:  245, 184, 208;
+}
+[data-palette="rose-dusk"][data-mode="light"] {
+  --bg:        #fdf0f8;
+  --bg-rgb:    253, 240, 248;
+  --code-bg:   #f5e0f0;
+  --selection: #e0c8e0;
+  --comment:   #785878;
+  --fg:        #28182a;
+  --red:       #b03838;
+  --orange:    #985018;
+  --yellow:    #806018;
+  --green:     #206838;
+  --cyan:      #185878;
+  --purple:    #583898;
+  --pink:      #983060;
+  --pink-rgb:  152, 48, 96;
+}
+
+/* 03 — Moss & Cream */
+[data-palette="moss-cream"][data-mode="dark"] {
+  --bg:        #222c25;
+  --bg-rgb:    34, 44, 37;
+  --code-bg:   #18211b;
+  --selection: #344038;
+  --comment:   #608868;
+  --fg:        #e8f0e4;
+  --red:       #f0a8a0;
+  --orange:    #f0c89a;
+  --yellow:    #e8e4a0;
+  --green:     #a8e8b0;
+  --cyan:      #a8e0d8;
+  --purple:    #c0b8e8;
+  --pink:      #e8b8c8;
+  --pink-rgb:  232, 184, 200;
+}
+[data-palette="moss-cream"][data-mode="light"] {
+  --bg:        #f2f8ee;
+  --bg-rgb:    242, 248, 238;
+  --code-bg:   #e2f0da;
+  --selection: #c8dcc0;
+  --comment:   #507858;
+  --fg:        #182018;
+  --red:       #b03830;
+  --orange:    #985810;
+  --yellow:    #787010;
+  --green:     #246830;
+  --cyan:      #1e6860;
+  --purple:    #4c3890;
+  --pink:      #883848;
+  --pink-rgb:  136, 56, 72;
+}
+
+/* 04 — Indigo Mist */
+[data-palette="indigo-mist"][data-mode="dark"] {
+  --bg:        #21233a;
+  --bg-rgb:    33, 35, 58;
+  --code-bg:   #18192c;
+  --selection: #353758;
+  --comment:   #7878b0;
+  --fg:        #eaeaf8;
+  --red:       #f0a0b0;
+  --orange:    #f0c098;
+  --yellow:    #e8e098;
+  --green:     #a0e8b8;
+  --cyan:      #a0d0f8;
+  --purple:    #c0a8f8;
+  --pink:      #f0a8d0;
+  --pink-rgb:  240, 168, 208;
+}
+[data-palette="indigo-mist"][data-mode="light"] {
+  --bg:        #f0f0ff;
+  --bg-rgb:    240, 240, 255;
+  --code-bg:   #e0e0f8;
+  --selection: #c8c8e8;
+  --comment:   #505090;
+  --fg:        #181828;
+  --red:       #a02840;
+  --orange:    #904810;
+  --yellow:    #706810;
+  --green:     #1c6040;
+  --cyan:      #1c5080;
+  --purple:    #4030a0;
+  --pink:      #882858;
+  --pink-rgb:  136, 40, 88;
+}
+
+/* 05 — Sand & Amber */
+[data-palette="sand-amber"][data-mode="dark"] {
+  --bg:        #2c2818;
+  --bg-rgb:    44, 40, 24;
+  --code-bg:   #211e10;
+  --selection: #443c20;
+  --comment:   #908050;
+  --fg:        #f8f0d8;
+  --red:       #f5a898;
+  --orange:    #f5c888;
+  --yellow:    #f0e898;
+  --green:     #b0e8a8;
+  --cyan:      #a8d8e8;
+  --purple:    #c8b8e8;
+  --pink:      #f0b8c8;
+  --pink-rgb:  240, 184, 200;
+}
+[data-palette="sand-amber"][data-mode="light"] {
+  --bg:        #fdf8ee;
+  --bg-rgb:    253, 248, 238;
+  --code-bg:   #f5edd8;
+  --selection: #e0d0b0;
+  --comment:   #706030;
+  --fg:        #201808;
+  --red:       #b03020;
+  --orange:    #985010;
+  --yellow:    #806810;
+  --green:     #286020;
+  --cyan:      #206070;
+  --purple:    #583888;
+  --pink:      #903048;
+  --pink-rgb:  144, 48, 72;
+}
+
+/* 06 — Ocean Foam */
+[data-palette="ocean-foam"][data-mode="dark"] {
+  --bg:        #182830;
+  --bg-rgb:    24, 40, 48;
+  --code-bg:   #101d24;
+  --selection: #284048;
+  --comment:   #508898;
+  --fg:        #e0f0f4;
+  --red:       #f0a8a8;
+  --orange:    #f0c8a0;
+  --yellow:    #e8e8a0;
+  --green:     #a0e8d0;
+  --cyan:      #a0d8f0;
+  --purple:    #b8b0f0;
+  --pink:      #f0b0d0;
+  --pink-rgb:  240, 176, 208;
+}
+[data-palette="ocean-foam"][data-mode="light"] {
+  --bg:        #eef8fc;
+  --bg-rgb:    238, 248, 252;
+  --code-bg:   #d8eef5;
+  --selection: #b8d8e8;
+  --comment:   #306878;
+  --fg:        #081820;
+  --red:       #a83030;
+  --orange:    #905020;
+  --yellow:    #706810;
+  --green:     #186050;
+  --cyan:      #185870;
+  --purple:    #3830a0;
+  --pink:      #883050;
+  --pink-rgb:  136, 48, 80;
+}
+
+/* 07 — Lavender Dusk */
+[data-palette="lavender-dusk"][data-mode="dark"] {
+  --bg:        #28223a;
+  --bg-rgb:    40, 34, 58;
+  --code-bg:   #1e182c;
+  --selection: #403458;
+  --comment:   #8878b8;
+  --fg:        #ece8f8;
+  --red:       #f0a8b8;
+  --orange:    #f0c8a8;
+  --yellow:    #e8e0a8;
+  --green:     #a8e8c8;
+  --cyan:      #a8c8f0;
+  --purple:    #c8b0f8;
+  --pink:      #f0b0e0;
+  --pink-rgb:  240, 176, 224;
+}
+[data-palette="lavender-dusk"][data-mode="light"] {
+  --bg:        #f5f0ff;
+  --bg-rgb:    245, 240, 255;
+  --code-bg:   #ebe0f8;
+  --selection: #d0c0e8;
+  --comment:   #605090;
+  --fg:        #180e28;
+  --red:       #a02848;
+  --orange:    #8c4810;
+  --yellow:    #706018;
+  --green:     #1c6048;
+  --cyan:      #1c4878;
+  --purple:    #5030a8;
+  --pink:      #902868;
+  --pink-rgb:  144, 40, 104;
+}
+
+/* 08 — Cherry Blossom */
+[data-palette="cherry-blossom"][data-mode="dark"] {
+  --bg:        #321a20;
+  --bg-rgb:    50, 26, 32;
+  --code-bg:   #261218;
+  --selection: #502830;
+  --comment:   #a06070;
+  --fg:        #f8e8ec;
+  --red:       #f5a0a8;
+  --orange:    #f5c098;
+  --yellow:    #f0e0a0;
+  --green:     #b0e8b8;
+  --cyan:      #a8d8f0;
+  --purple:    #d0a8f0;
+  --pink:      #f8a8c8;
+  --pink-rgb:  248, 168, 200;
+}
+[data-palette="cherry-blossom"][data-mode="light"] {
+  --bg:        #fff0f3;
+  --bg-rgb:    255, 240, 243;
+  --code-bg:   #f8dde2;
+  --selection: #e8c0c8;
+  --comment:   #804858;
+  --fg:        #220a10;
+  --red:       #b02030;
+  --orange:    #984010;
+  --yellow:    #806010;
+  --green:     #206030;
+  --cyan:      #185870;
+  --purple:    #582898;
+  --pink:      #982050;
+  --pink-rgb:  152, 32, 80;
+}
+
+/* 09 — Nordic Fog */
+[data-palette="nordic-fog"][data-mode="dark"] {
+  --bg:        #1e2630;
+  --bg-rgb:    30, 38, 48;
+  --code-bg:   #161d25;
+  --selection: #2e3d4a;
+  --comment:   #607888;
+  --fg:        #dce8f0;
+  --red:       #f0a8a0;
+  --orange:    #f0c898;
+  --yellow:    #e8e0a0;
+  --green:     #a0e0c8;
+  --cyan:      #a0d0e8;
+  --purple:    #b8a8e0;
+  --pink:      #e8a8c0;
+  --pink-rgb:  232, 168, 192;
+}
+[data-palette="nordic-fog"][data-mode="light"] {
+  --bg:        #ecf4f8;
+  --bg-rgb:    236, 244, 248;
+  --code-bg:   #d8e8f0;
+  --selection: #b8ccda;
+  --comment:   #385868;
+  --fg:        #0c1820;
+  --red:       #a83028;
+  --orange:    #905010;
+  --yellow:    #686818;
+  --green:     #186050;
+  --cyan:      #185068;
+  --purple:    #403888;
+  --pink:      #883048;
+  --pink-rgb:  136, 48, 72;
+}
+
+/* 10 — Citrus Haze */
+[data-palette="citrus-haze"][data-mode="dark"] {
+  --bg:        #2a2a18;
+  --bg-rgb:    42, 42, 24;
+  --code-bg:   #201f10;
+  --selection: #424020;
+  --comment:   #888858;
+  --fg:        #f0f0dc;
+  --red:       #f0a898;
+  --orange:    #f0cc88;
+  --yellow:    #f0f080;
+  --green:     #b0f0a0;
+  --cyan:      #a0e0e0;
+  --purple:    #c0b0e8;
+  --pink:      #f0b0c0;
+  --pink-rgb:  240, 176, 192;
+}
+[data-palette="citrus-haze"][data-mode="light"] {
+  --bg:        #fdfde8;
+  --bg-rgb:    253, 253, 232;
+  --code-bg:   #f5f5d0;
+  --selection: #dcdcb0;
+  --comment:   #686830;
+  --fg:        #181800;
+  --red:       #b02818;
+  --orange:    #985008;
+  --yellow:    #787800;
+  --green:     #286018;
+  --cyan:      #206060;
+  --purple:    #503090;
+  --pink:      #902838;
+  --pink-rgb:  144, 40, 56;
 }

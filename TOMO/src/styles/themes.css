@@ -1,151 +1,87 @@
-/* ===== LIGHT THEME (ALUCARD) ===== */
-[data-theme="light"] {
-  background-color: var(--alucard-bg);
-  color: var(--alucard-fg);
+/* ===== THEMES ===== */
+
+[data-mode] {
+  background-color: var(--bg);
+  color: var(--fg);
 }
 
-[data-theme="light"] header {
-  border-color: var(--alucard-purple);
+[data-mode] header {
+  border-color: var(--purple);
 }
 
-[data-theme="light"] th {
-  color: var(--alucard-red) !important;
-  border-bottom: 2px solid var(--alucard-red);
+[data-mode] th {
+  color: var(--cyan) !important;
+  border-bottom: 2px solid var(--purple);
 }
 
-[data-theme="light"] pre {
-  background: var(--alucard-code-bg) !important;
-  border: 1px solid var(--alucard-border);
+[data-mode] pre {
+  background: var(--code-bg) !important;
+  border: 1px solid var(--comment);
 }
 
-[data-theme="light"] pre code.hljs {
-  color: var(--alucard-fg) !important;
+[data-mode] pre code.hljs {
+  color: var(--fg) !important;
 }
 
-[data-theme="light"] code:not(.hljs) {
-  background: var(--alucard-code-inline-bg);
-  color: var(--alucard-red);
+[data-mode] code:not(.hljs) {
+  background: var(--selection);
+  color: var(--pink);
 }
 
-/* Alucard Code Syntax */
-[data-theme="light"] .hljs-keyword,
-[data-theme="light"] .hljs-selector-tag,
-[data-theme="light"] .hljs-literal,
-[data-theme="light"] .hljs-section,
-[data-theme="light"] .hljs-link {
-  color: var(--alucard-pink) !important;
+/* Syntax highlighting */
+[data-mode] .hljs-keyword,
+[data-mode] .hljs-selector-tag,
+[data-mode] .hljs-literal,
+[data-mode] .hljs-section,
+[data-mode] .hljs-link {
+  color: var(--pink) !important;
 }
 
-[data-theme="light"] .hljs-function,
-[data-theme="light"] .hljs-title,
-[data-theme="light"] .hljs-name,
-[data-theme="light"] .hljs-selector-id,
-[data-theme="light"] .hljs-selector-class {
-  color: var(--alucard-green) !important;
+[data-mode] .hljs-function,
+[data-mode] .hljs-title,
+[data-mode] .hljs-name,
+[data-mode] .hljs-selector-id,
+[data-mode] .hljs-selector-class {
+  color: var(--green) !important;
 }
 
-[data-theme="light"] .hljs-number,
-[data-theme="light"] .hljs-meta,
-[data-theme="light"] .hljs-built_in,
-[data-theme="light"] .hljs-builtin-name,
-[data-theme="light"] .hljs-attr,
-[data-theme="light"] .hljs-attribute,
-[data-theme="light"] .hljs-variable,
-[data-theme="light"] .hljs-subst {
-  color: var(--alucard-cyan) !important;
+[data-mode] .hljs-number,
+[data-mode] .hljs-meta,
+[data-mode] .hljs-built_in,
+[data-mode] .hljs-builtin-name,
+[data-mode] .hljs-attr,
+[data-mode] .hljs-attribute,
+[data-mode] .hljs-variable,
+[data-mode] .hljs-subst {
+  color: var(--cyan) !important;
 }
 
-[data-theme="light"] .hljs-string,
-[data-theme="light"] .hljs-type,
-[data-theme="light"] .hljs-params,
-[data-theme="light"] .hljs-bullet,
-[data-theme="light"] .hljs-addition {
-  color: var(--alucard-yellow) !important;
+[data-mode] .hljs-string,
+[data-mode] .hljs-type,
+[data-mode] .hljs-params,
+[data-mode] .hljs-bullet,
+[data-mode] .hljs-addition {
+  color: var(--yellow) !important;
 }
 
-[data-theme="light"] .hljs-comment,
-[data-theme="light"] .hljs-quote,
-[data-theme="light"] .hljs-deletion {
-  color: var(--alucard-comment) !important;
+[data-mode] .hljs-comment,
+[data-mode] .hljs-quote,
+[data-mode] .hljs-deletion {
+  color: var(--comment) !important;
 }
 
-[data-theme="light"] .hljs-keyword,
-[data-theme="light"] .hljs-selector-tag {
+[data-mode] .hljs-keyword,
+[data-mode] .hljs-selector-tag {
   font-weight: bold;
 }
 
-/* ===== DARK THEME (DRACULA OFFICIAL) ===== */
-[data-theme="dark"] {
-  background-color: var(--dracula-bg);
-  color: var(--dracula-fg);
+/* Light mode: swap cyan/red for th */
+[data-mode="light"] th {
+  color: var(--red) !important;
+  border-bottom: 2px solid var(--red);
 }
 
-[data-theme="dark"] header {
-  border-color: var(--dracula-purple);
-}
-
-[data-theme="dark"] th {
-  color: var(--dracula-cyan) !important;
-  border-bottom: 2px solid var(--dracula-purple);
-}
-
-[data-theme="dark"] pre {
-  background: var(--dracula-code-bg) !important;
-  border: 1px solid var(--dracula-comment);
-}
-
-[data-theme="dark"] pre code.hljs {
-  color: var(--dracula-fg) !important;
-}
-
-[data-theme="dark"] code:not(.hljs) {
-  background: var(--dracula-selection);
-  color: var(--dracula-pink);
-}
-
-/* Official Dracula Highlight.js Mapping */
-[data-theme="dark"] .hljs-keyword,
-[data-theme="dark"] .hljs-selector-tag,
-[data-theme="dark"] .hljs-literal,
-[data-theme="dark"] .hljs-section,
-[data-theme="dark"] .hljs-link {
-  color: var(--dracula-pink) !important;
-}
-
-[data-theme="dark"] .hljs-function,
-[data-theme="dark"] .hljs-title,
-[data-theme="dark"] .hljs-name,
-[data-theme="dark"] .hljs-selector-id,
-[data-theme="dark"] .hljs-selector-class {
-  color: var(--dracula-green) !important;
-}
-
-[data-theme="dark"] .hljs-number,
-[data-theme="dark"] .hljs-meta,
-[data-theme="dark"] .hljs-built_in,
-[data-theme="dark"] .hljs-builtin-name,
-[data-theme="dark"] .hljs-attr,
-[data-theme="dark"] .hljs-attribute,
-[data-theme="dark"] .hljs-variable,
-[data-theme="dark"] .hljs-subst {
-  color: var(--dracula-cyan) !important;
-}
-
-[data-theme="dark"] .hljs-string,
-[data-theme="dark"] .hljs-type,
-[data-theme="dark"] .hljs-params,
-[data-theme="dark"] .hljs-bullet,
-[data-theme="dark"] .hljs-addition {
-  color: var(--dracula-yellow) !important;
-}
-
-[data-theme="dark"] .hljs-comment,
-[data-theme="dark"] .hljs-quote,
-[data-theme="dark"] .hljs-deletion {
-  color: var(--dracula-comment) !important;
-}
-
-[data-theme="dark"] .hljs-keyword,
-[data-theme="dark"] .hljs-selector-tag {
-  font-weight: bold;
+/* Light mode: inline code uses red instead of pink */
+[data-mode="light"] code:not(.hljs) {
+  color: var(--red);
 }

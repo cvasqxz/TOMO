@@ -6,6 +6,7 @@
 import { Marked } from "marked";
 import { markedHighlight } from "marked-highlight";
 import hljs from "highlight.js";
+import { openUrl } from "@tauri-apps/plugin-opener";
 
 const markedOptions = {
   breaks: true,
@@ -60,6 +61,21 @@ export function createFastParser() {
   });
 
   return marked;
+}
+
+/**
+ * Intercept all link clicks inside a container and open them in the system browser
+ * @param {HTMLElement} container
+ */
+export function interceptLinks(container) {
+  container.addEventListener("click", (e) => {
+    const anchor = e.target.closest("a[href]");
+    if (!anchor) return;
+    const href = anchor.getAttribute("href");
+    if (!href || href.startsWith("#")) return;
+    e.preventDefault();
+    openUrl(href);
+  });
 }
 
 /**

@@ -1,4 +1,7 @@
 /* ===== MAIN STYLESHEET INDEX ===== */
+/* Local fonts */
+@import "./fonts.css";
+
 /* Import external frameworks */
 @import "highlight.js/styles/github.css";
 

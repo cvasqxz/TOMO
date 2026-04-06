@@ -10,18 +10,7 @@ tr, td, th {
   background-color: transparent !important;
   padding: 0.75rem 1rem;
   text-align: left;
-}
-
-[data-theme="dark"] tr,
-[data-theme="dark"] td,
-[data-theme="dark"] th {
-  border-bottom: 1px solid var(--dracula-selection);
-}
-
-[data-theme="light"] tr,
-[data-theme="light"] td,
-[data-theme="light"] th {
-  border-bottom: 1px solid var(--alucard-border);
+  border-bottom: 1px solid var(--selection);
 }
 
 tbody tr:nth-child(even) {

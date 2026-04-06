@@ -3,6 +3,7 @@
  */
 
 import { stopWatching } from "../core/file-loader.js";
+import { resetToWelcomeTheme } from "./theme.js";
 
 export class ViewManager {
   constructor() {
@@ -15,7 +16,6 @@ export class ViewManager {
 
     // Animation elements
     this.welcomeTitle = document.getElementById('welcome-title');
-    this.welcomeDivider = document.getElementById('welcome-divider');
     this.welcomeButtons = document.getElementById('welcome-buttons');
     this.floatingControls = document.getElementById('floating-controls');
   }
@@ -26,6 +26,9 @@ export class ViewManager {
   showWelcomeScreen() {
     // Stop watching the current file
     stopWatching();
+
+    // Reset to welcome defaults (without touching localStorage)
+    resetToWelcomeTheme();
 
     // Step 1: Hide floating controls and fade out reader
     this.floatingControls?.classList.add('floating-controls-hidden');
@@ -45,9 +48,8 @@ export class ViewManager {
       this.welcomeTitle?.classList.remove('moving');
     }, 400);
 
-    // Step 3: After 800ms, show divider and buttons
+    // Step 3: After 800ms, show buttons
     setTimeout(() => {
-      this.welcomeDivider?.classList.remove('hiding');
       this.welcomeButtons?.classList.remove('hiding');
     }, 800);
 
@@ -67,8 +69,7 @@ export class ViewManager {
     // Start animation sequence
     this.welcomeScreen.classList.add('transitioning');
 
-    // Step 1: Hide divider and buttons (400ms)
-    this.welcomeDivider?.classList.add('hiding');
+    // Step 1: Hide buttons (400ms)
     this.welcomeButtons?.classList.add('hiding');
 
     // Step 2: After 400ms, move title to corner
