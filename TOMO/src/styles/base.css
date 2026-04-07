@@ -45,11 +45,7 @@ button {
 }
 
 .reader-content h1 {
-  font-size: 2.5rem;
   padding-bottom: 0.5rem;
-}
-
-.reader-content h1 {
   background: linear-gradient(135deg, var(--cyan), var(--pink));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -58,12 +54,10 @@ button {
 }
 
 .reader-content h2 {
-  font-size: 2rem;
   color: var(--pink);
 }
 
 .reader-content h3 {
-  font-size: 1.5rem;
   color: var(--purple);
 }
 

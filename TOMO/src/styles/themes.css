@@ -85,3 +85,25 @@
 [data-mode="light"] code:not(.hljs) {
   color: var(--red);
 }
+
+/* Palette-reactive: floating buttons + search icons */
+[data-palette][data-mode] .floating-btn {
+  color: var(--cyan);
+  border-color: var(--cyan);
+}
+
+[data-palette][data-mode] .floating-btn:hover {
+  color: var(--pink);
+  border-color: var(--pink);
+  box-shadow: 0 0 20px rgba(var(--pink-rgb), 0.4);
+}
+
+/* Palette-reactive: search input border */
+[data-palette][data-mode] #search-input {
+  border-color: var(--cyan);
+}
+
+/* Palette-reactive: TOMO gradient title */
+[data-palette][data-mode] .gradient-text {
+  background-image: linear-gradient(135deg, var(--cyan), var(--pink), var(--cyan));
+}

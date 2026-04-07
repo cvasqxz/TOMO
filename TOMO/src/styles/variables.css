@@ -3,10 +3,11 @@
   /* Typography */
   --font-base: 'Sora', sans-serif;
   --font-mono: 'Kode Mono', monospace;
-  --font-size: 16px;
+  --font-size: 15px;
   --transition: background-color 0.2s ease, color 0.2s ease;
   --shadow: 0 8px 32px rgba(0,0,0,0.3);
 
+  font-size: var(--font-size);
   font-family: var(--font-base);
   transition: var(--transition);
 }
@@ -351,4 +352,38 @@
   --purple:    #503090;
   --pink:      #902838;
   --pink-rgb:  144, 40, 56;
+}
+
+/* 11 — Graphite */
+[data-palette="graphite"][data-mode="dark"] {
+  --bg:        #242424;
+  --bg-rgb:    36, 36, 36;
+  --code-bg:   #1c1c1c;
+  --selection: #363636;
+  --comment:   #707070;
+  --fg:        #d8d8d8;
+  --red:       #b8b8b8;
+  --orange:    #acacac;
+  --yellow:    #cccccc;
+  --green:     #c4c4c4;
+  --cyan:      #d0d0d0;
+  --purple:    #989898;
+  --pink:      #b0b0b0;
+  --pink-rgb:  176, 176, 176;
+}
+[data-palette="graphite"][data-mode="light"] {
+  --bg:        #dadada;
+  --bg-rgb:    218, 218, 218;
+  --code-bg:   #cccccc;
+  --selection: #c4c4c4;
+  --comment:   #888888;
+  --fg:        #262626;
+  --red:       #383838;
+  --orange:    #505050;
+  --yellow:    #484848;
+  --green:     #404040;
+  --cyan:      #2e2e2e;
+  --purple:    #606060;
+  --pink:      #484848;
+  --pink-rgb:  72, 72, 72;
 }
