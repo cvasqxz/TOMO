@@ -3,7 +3,6 @@
  */
 
 import { stopWatching } from "../core/file-loader.js";
-import { resetToWelcomeTheme } from "./theme.js";
 
 export class ViewManager {
   constructor() {
@@ -26,9 +25,6 @@ export class ViewManager {
   showWelcomeScreen() {
     // Stop watching the current file
     stopWatching();
-
-    // Reset to welcome defaults (without touching localStorage)
-    resetToWelcomeTheme();
 
     // Step 1: Hide floating controls and fade out reader
     this.floatingControls?.classList.add('floating-controls-hidden');

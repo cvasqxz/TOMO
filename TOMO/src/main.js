@@ -10,6 +10,7 @@ import "./styles/index.css";
 import { createMarkdownParser } from "./modules/core/markdown.js";
 import { initializeEventListeners } from "./modules/events.js";
 import { loadMarkdown } from "./modules/core/file-loader.js";
+import { restoreSavedTheme } from "./modules/ui/theme.js";
 import { getCurrentWindow } from "@tauri-apps/api/window";
 
 /**
@@ -17,6 +18,9 @@ import { getCurrentWindow } from "@tauri-apps/api/window";
  */
 async function initializeApp() {
   try {
+    // Restore saved palette and mode before rendering anything
+    restoreSavedTheme();
+
     // Create markdown parser instance
     const markdownParser = createMarkdownParser();
 
