@@ -4,7 +4,7 @@
  */
 
 import { readTextFile, watch } from "@tauri-apps/plugin-fs";
-import { showToast } from "../ui/toast.js";
+import { showNotification } from "../ui/notification.js";
 import { isMarkdownFile, isValidFileSize, isNotEmpty, getFilename, getMaxFileSizeMB } from "./utils.js";
 import { getViewManager } from "../events.js";
 import { createFastParser, setupLazyHighlighting, interceptLinks } from "./markdown.js";
@@ -228,7 +228,6 @@ async function reloadFile() {
       viewManager.generateNavigationMap();
     }
 
-    showToast('File reloaded', 'success');
   } catch (err) {
     console.error("Reload error:", err);
   }
@@ -244,7 +243,7 @@ export async function loadMarkdown(path, markdownParser) {
   try {
     // 1. Validate extension
     if (!isMarkdownFile(path)) {
-      showToast('El archivo debe ser .md o .markdown', 'error');
+      await showNotification('El archivo debe ser .md o .markdown', 'error');
       return;
     }
 
@@ -253,20 +252,17 @@ export async function loadMarkdown(path, markdownParser) {
     try {
       markdownText = await readTextFile(path);
     } catch (err) {
-      showToast(`Could not read file: ${err.message || err}`, 'error');
       console.error("File read error:", err);
       return;
     }
 
     // 3. Validate it's not empty
     if (!isNotEmpty(markdownText)) {
-      showToast('File is empty', 'warning');
       return;
     }
 
     // 4. Validate size (max 10MB)
     if (!isValidFileSize(markdownText)) {
-      showToast(`File too large (max ${getMaxFileSizeMB()}MB)`, 'error');
       return;
     }
 
@@ -293,10 +289,8 @@ export async function loadMarkdown(path, markdownParser) {
     await startWatching(path, markdownParser);
 
     window.scrollTo(0, 0);
-    showToast('File loaded successfully', 'success');
   } catch (err) {
     console.error("TOMO Error:", err);
-    showToast(`Error loading file: ${err.message}`, 'error');
   }
 }
 

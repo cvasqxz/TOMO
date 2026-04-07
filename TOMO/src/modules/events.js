@@ -8,7 +8,7 @@ import { getCurrentWindow } from "@tauri-apps/api/window";
 import { loadMarkdown } from "./core/file-loader.js";
 import { initSearchListeners, toggleSearchBar } from "./ui/search.js";
 import { setMode, setPalette, getCurrentMode, getCurrentPalette } from "./ui/theme.js";
-import { showToast } from "./ui/toast.js";
+import { showNotification } from "./ui/notification.js";
 import { isMarkdownFile } from "./core/utils.js";
 import { ViewManager } from "./ui/view-manager.js";
 
@@ -61,7 +61,6 @@ export function initializeEventListeners(markdownParser) {
       }
     } catch (err) {
       console.error("Dialog Error:", err);
-      showToast('Error opening file dialog', 'error');
     }
   };
 
@@ -131,7 +130,7 @@ export function initializeEventListeners(markdownParser) {
       if (file && isMarkdownFile(file)) {
         await loadMarkdown(file, markdownParser);
       } else if (file) {
-        showToast('Please drag a valid .md or .markdown file', 'warning');
+        await showNotification('El archivo debe ser .md o .markdown', 'error');
       }
     }
   });

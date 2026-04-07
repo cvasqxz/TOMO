@@ -4,7 +4,6 @@
  */
 
 import Mark from "mark.js";
-import { showToast } from "./toast.js";
 
 // DOM Selectors
 import { getViewManager } from "../events.js";
