@@ -59,3 +59,14 @@ export function getFilename(path) {
 export function getMaxFileSizeMB() {
   return MAX_FILE_SIZE / (1024 * 1024);
 }
+
+/**
+ * Check if content is plain text (not a binary file)
+ * Null bytes are a near-universal indicator of binary content
+ * and never appear in valid UTF-8 text.
+ * @param {string} content - The file content to check
+ * @returns {boolean} True if content appears to be plain text
+ */
+export function isTextContent(content) {
+  return !content.includes('\x00');
+}

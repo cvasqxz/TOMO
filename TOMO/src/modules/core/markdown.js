@@ -63,8 +63,12 @@ export function createFastParser() {
   return marked;
 }
 
+const ALLOWED_PROTOCOLS = ['http:', 'https:', 'mailto:'];
+
 /**
- * Intercept all link clicks inside a container and open them in the system browser
+ * Intercept all link clicks inside a container and open them in the system browser.
+ * Only http, https, and mailto links are allowed — javascript: and other
+ * potentially dangerous protocols are silently ignored.
  * @param {HTMLElement} container
  */
 export function interceptLinks(container) {
@@ -74,7 +78,13 @@ export function interceptLinks(container) {
     const href = anchor.getAttribute("href");
     if (!href || href.startsWith("#")) return;
     e.preventDefault();
-    openUrl(href);
+    try {
+      const url = new URL(href);
+      if (!ALLOWED_PROTOCOLS.includes(url.protocol)) return;
+      openUrl(href);
+    } catch {
+      // Relative or malformed URLs — ignore
+    }
   });
 }
 

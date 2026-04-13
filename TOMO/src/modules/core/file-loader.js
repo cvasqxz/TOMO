@@ -4,8 +4,15 @@
  */
 
 import { readTextFile, watch } from "@tauri-apps/plugin-fs";
+import DOMPurify from "dompurify";
 import { showNotification } from "../ui/notification.js";
-import { isMarkdownFile, isValidFileSize, isNotEmpty, getFilename, getMaxFileSizeMB } from "./utils.js";
+import { isMarkdownFile, isValidFileSize, isNotEmpty, isTextContent, getFilename, getMaxFileSizeMB } from "./utils.js";
+
+const sanitize = (html) => DOMPurify.sanitize(html, {
+  ALLOW_DATA_ATTR: true,
+  FORBID_TAGS: ['style', 'iframe', 'form', 'input', 'textarea', 'select', 'button', 'script'],
+  FORBID_ATTR: ['style', 'onerror', 'onload', 'onclick', 'onmouseover'],
+});
 import { getViewManager } from "../events.js";
 import { createFastParser, setupLazyHighlighting, interceptLinks } from "./markdown.js";
 import { restoreSavedTheme } from "../ui/theme.js";
@@ -106,7 +113,7 @@ async function renderProgressive(markdownText, markdownParser, { preserveScroll 
     if (controller.signal.aborted) return;
 
     const fragment = document.createElement("div");
-    fragment.innerHTML = firstHtml;
+    fragment.innerHTML = sanitize(firstHtml);
     while (fragment.firstChild) {
       contentArea.appendChild(fragment.firstChild);
     }
@@ -131,7 +138,7 @@ async function renderProgressive(markdownText, markdownParser, { preserveScroll 
         if (controller.signal.aborted) { resolve(); return; }
 
         const fragment = document.createElement("div");
-        fragment.innerHTML = html;
+        fragment.innerHTML = sanitize(html);
 
         // Move children to a DocumentFragment to minimize reflows
         const docFrag = document.createDocumentFragment();
@@ -169,7 +176,7 @@ async function renderProgressive(markdownText, markdownParser, { preserveScroll 
 async function renderImmediate(markdownText, markdownParser) {
   abortProgressiveRender();
   const htmlContent = await markdownParser.parse(markdownText);
-  contentArea.innerHTML = htmlContent;
+  contentArea.innerHTML = sanitize(htmlContent);
 }
 
 /**
@@ -256,17 +263,23 @@ export async function loadMarkdown(path, markdownParser) {
       return;
     }
 
-    // 3. Validate it's not empty
+    // 3. Validate it's plain text, not a binary file
+    if (!isTextContent(markdownText)) {
+      await showNotification('El archivo no es un documento de texto válido', 'error');
+      return;
+    }
+
+    // 4. Validate it's not empty
     if (!isNotEmpty(markdownText)) {
       return;
     }
 
-    // 4. Validate size (max 10MB)
+    // 5. Validate size (max 10MB)
     if (!isValidFileSize(markdownText)) {
       return;
     }
 
-    // 5. Render markdown — progressive for large files, immediate for small
+    // 6. Render markdown — progressive for large files, immediate for small
     const isLarge = new Blob([markdownText]).size > PROGRESSIVE_THRESHOLD;
 
     if (isLarge) {
@@ -275,7 +288,7 @@ export async function loadMarkdown(path, markdownParser) {
       await renderImmediate(markdownText, markdownParser);
     }
 
-    // 6. Restore saved theme and show reader view
+    // 7. Restore saved theme and show reader view
     restoreSavedTheme();
 
     const fileName = getFilename(path);
@@ -285,7 +298,7 @@ export async function loadMarkdown(path, markdownParser) {
       viewManager.showReaderView(fileName);
     }
 
-    // 7. Start watching for changes
+    // 8. Start watching for changes
     await startWatching(path, markdownParser);
 
     window.scrollTo(0, 0);
