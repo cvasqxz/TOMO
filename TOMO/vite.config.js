@@ -14,5 +14,14 @@ export default defineConfig({
     target: "esnext",
     minify: !process.env.TAURI_DEBUG ? "esbuild" : false,
     sourcemap: !!process.env.TAURI_DEBUG,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "vendor-highlight": ["highlight.js"],
+          "vendor-markdown": ["marked", "marked-highlight"],
+          "vendor": ["dompurify", "mark.js"],
+        },
+      },
+    },
   },
 });
