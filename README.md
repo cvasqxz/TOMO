@@ -1,11 +1,11 @@
 # TOMO - Minimalist Markdown Reader
 
-A minimal Markdown reader built with Tauri, featuring 10 color palettes with dark and light modes.
+A minimal Markdown reader built with Tauri, featuring 9 color palettes with dark and light modes, plus a grayscale option.
 
 ## Features
 
 - Clean Markdown rendering with GitHub Flavored Markdown support
-- 10 pastel color palettes, each with dark and light mode
+- 9 pastel color palettes + Graphite (grayscale), each with dark and light mode
 - Syntax highlighting powered by highlight.js (lazy-loaded on scroll)
 - In-document search (Ctrl+F)
 - Drag & drop file loading
@@ -64,8 +64,7 @@ The welcome screen always uses **Misty Slate (dark)** as the base. Once a file i
 | Ocean Foam | Teal ocean |
 | Lavender Dusk | Soft lavender |
 | Cherry Blossom | Pink rose |
-| Nordic Fog | Cold nordic blue |
-| Citrus Haze | Yellow-green citrus |
+| Graphite | Full grayscale |
 
 ## Technologies
 
@@ -74,6 +73,7 @@ The welcome screen always uses **Misty Slate (dark)** as the base. Once a file i
 - [Marked](https://marked.js.org/) — Markdown parser
 - [Highlight.js](https://highlightjs.org/) — Syntax highlighting
 - [Sora](https://fonts.google.com/specimen/Sora) / [Kode Mono](https://fonts.google.com/specimen/Kode+Mono) — Typography
+- [DOMPurify](https://github.com/cure53/DOMPurify) — HTML sanitization
 
 ## Project Structure
 
@@ -90,7 +90,7 @@ TOMO/
 │   │   │   ├── view-manager.js  # View transitions and animations
 │   │   │   ├── theme.js         # Palette and mode management
 │   │   │   ├── search.js        # In-document search
-│   │   │   └── toast.js         # Toast notifications
+│   │   │   └── notification.js  # Native OS notifications
 │   │   └── events.js            # Event listeners
 │   └── styles/
 │       ├── index.css            # Style imports
@@ -102,8 +102,7 @@ TOMO/
 │       ├── code.css             # Code block styling
 │       ├── themes.css           # Syntax highlighting theme rules
 │       ├── tables.css           # Table styling
-│       ├── search.css           # Search UI
-│       └── toast.css            # Toast notifications
+│       └── search.css           # Search UI
 ├── src-tauri/
 │   ├── src/
 │   │   ├── lib.rs               # Tauri plugin setup
@@ -117,9 +116,17 @@ TOMO/
 
 ## Security
 
-- Content Security Policy (CSP) configured
+- Content Security Policy (CSP) blocks inline scripts and external resources
 - Only accepts `.md` and `.markdown` files
+- Binary file detection (null byte check) rejects non-text files
+- HTML sanitized with DOMPurify before rendering
+- Link clicks validated against an allowlist of safe protocols (`http`, `https`, `mailto`)
 - Maximum 10MB per file
+
+## Credits
+
+App icon: [Bookmark Tabs](https://openmoji.org/library/emoji-1F4D1/) by [OpenMoji](https://openmoji.org/) — the open-source emoji and icon project.
+License: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 
 ## License
 
